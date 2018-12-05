@@ -9,7 +9,7 @@ using System.Web;
 namespace INTEX.Models
 {
     [Table("Compound")]
-    public class Instrument
+    public class Compound
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
