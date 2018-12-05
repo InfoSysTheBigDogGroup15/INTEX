@@ -14,7 +14,7 @@ namespace INTEX.Models
         [Key]
         public int sampleID { get; set; }
 
-        public int? LTnumber { get; set; }
+        public int? LTNumber { get; set; }
         public virtual Compound Compound { get; set; }
 
         [DisplayName("Sequence Number")]
