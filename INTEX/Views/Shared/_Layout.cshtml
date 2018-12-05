@@ -91,7 +91,7 @@
                                             <a href="@Url.Action("Index", "Dashboards")"><i class="fa fa-tachometer"></i> My Dashboard </a>
                                         </li>
                                         <li>
-                                            <a><i class="fa fa-list-ol"></i> Leaderboards <span class="fa fa-chevron-down"></span></a>
+                                            <a><i class="fa fa-list-ol"></i> Seattle <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("SP2Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">SP2 Leaderboard</a></li>
                                                 <li><a href="@Url.Action("SP1Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">SP1 Leaderboard</a></li>
@@ -114,18 +114,18 @@
                                             @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
                                             {*@
                                                 <li>
-                                                    <a><i class="fa fa-credit-card"></i> Sales Reports<span class="fa fa-chevron-down"></span></a>
+                                                    <a><i class="fa fa-credit-card"></i>Singapore<span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
-                                                        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">SP1</a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#sp2report-modal">SP2</a></li>
+                                                        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Updates</a></li>
+                                                        <li><a href="#" data-toggle="modal" data-target="#sp2report-modal">Update work orders</a></li>
                                                         <li>
-                                                            <a>Settings<span class="fa fa-chevron-down"></span></a>
+                                                            <a>Schedule<span class="fa fa-chevron-down"></span></a>
                                                             <ul class="nav child_menu">
                                                                 <li class="sub_menu">
-                                                                    <a href="@Url.Action("SP1RegionIndex", "Reports", null)">Manage SP1 Regions</a>
+                                                                    <a href="@Url.Action("SP1RegionIndex", "Reports", null)">Schedule assays</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="@Url.Action("SP2ReportConfig", "Reports", null)">Manage SP2 Regions</a>
+                                                                    <a href="@Url.Action("SP2ReportConfig", "Reports", null)">see schedule</a>
                                                                 </li>
                                                             </ul>
                                                         </li>
@@ -135,37 +135,37 @@
                                             @*@if (User.IsInRole("Admin"))
                                             {*@
                                                 <li>
-                                                    <a><i class="fa fa-dollar"></i> Payroll Reports<span class="fa fa-chevron-down"></span></a>
+                                                    <a><i class="fa fa-dollar"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
-                                                        <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">Report List</a></li>
-                                                        <li><a href="@Url.Action("Index", "PayrollPlans")">Manage Payroll Plans</a></li>
-                                                        <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">Assign Payroll Plans</a></li>
+                                                        <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">Catalog</a></li>
+                                                        <li><a href="@Url.Action("Index", "PayrollPlans")">Get quote</a></li>
+                                                        <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">About Us</a></li>
                                                     </ul>
                                                 </li>
                                             }
                                             @*@if (User.IsInRole("Admin") || User.IsInRole("Regional") || User.IsInRole("Manager"))
                                             {*@
                                                 <li>
-                                                    <a><i class="fa fa-users"></i> HR<span class="fa fa-chevron-down"></span></a>
+                                                    <a><i class="fa fa-users">Active client</i><span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
-                                                        <li><a href="@Url.Action("Index", "HR")">Users</a></li>
-                                                        @if (User.IsInRole("Admin"))
-                                                        {
-                                                            <li><a href="@Url.Action("Index", "Users")">Delete Users</a></li>
-                                                        }
-                                                        <li><a href="@Url.Action("AddSFUser", "Admin")">Create SP2/SP3/Manager/Regional</a></li>
-                                                        <li><a href="@Url.Action("AddSP1User", "Admin")">Create SP1 User</a></li>
+                                                        <li><a href="@Url.Action("Index", "HR")">Current clients orders</a></li>
+                                                        @*@if (User.IsInRole("Admin"))
+                                                        {*@
+                                                            <li><a href="@Url.Action("Index", "Users")">Updates</a></li>
+                                                            @*}*@
+                                                        <li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>
+                                                        <li><a href="@Url.Action("AddSP1User", "Admin")">New order</a></li>
                                                     </ul>
                                                 </li>
                                             }
                                             @*@if (User.IsInRole("Admin"))
                                             {*@
                                                 <li>
-                                                    <a><i class="fa fa-wrench"></i> Utilities<span class="fa fa-chevron-down"></span></a>
+                                                    <a><i class="fa fa-wrench"></i>Contact us<span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
-                                                        <li><a href="@Url.Action("SendTextMessages", "Admin")">Mass Text Messenger</a></li>
-                                                        <li><a href="@Url.Action("Index", "VideoApplications")">Video Applications</a></li>
-                                                        <li><a href="@Url.Action("Index", "Announcements")">Announcements</a></li>
+                                                        <li><a href="@Url.Action("SendTextMessages", "Admin")">Chat</a></li>
+                                                        <li><a href="@Url.Action("Index", "VideoApplications")">Contact</a></li>
+                                                        <li><a href="@Url.Action("Index", "Announcements")">Frequently asked questions</a></li>
                                                     </ul>
                                                 </li>
                                             @*}*@
