@@ -17,7 +17,7 @@ namespace INTEX.Models
         public int? clientID { get; set; }
         public virtual Client Client { get; set; }
 
-        public int? LTnumber { get; set; }
+        public int? LTNumber { get; set; }
         public virtual Compound Compound { get; set; }
 
         public int? testtID { get; set; }
