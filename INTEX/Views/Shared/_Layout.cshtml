@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="profile_info">
                                     <span>Welcome,</span>
-                                    <h2>@Request.Cookies["firstname"].Value @Request.Cookies["lastname"].Value</h2>
+                                    <h2>@*@Request.Cookies["firstname"].Value @Request.Cookies["lastname"].Value*@Admin</h2>
                                 </div>
                             </div>
                             <!-- /menu profile quick info -->
@@ -85,7 +85,7 @@
                             <!-- sidebar menu -->
                             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                                 <div class="menu_section">
-                                    <h3>General</h3>
+                                    
                                     <ul class="nav side-menu">
                                         <li>
                                             <a href="@Url.Action("Index", "Dashboards")"><i class="fa fa-tachometer"></i> My Dashboard </a>
@@ -98,23 +98,18 @@
                                                 <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">SP1 Customer Savings</a></li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <a href="@Url.Action("Index", "Map")"><i class="fa fa-map-pin"></i> Customer Installs Map </a>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("Leads", "CRM")"><i class="fa fa-database"></i> CRM </a>
-                                        </li>
+                                       
                                     </ul>
-                                </div>
+                                 
                                 @*@if (User.IsInRole("Admin") || User.IsInRole("Regional") || User.IsInRole("Manager"))
                                 {*@
-                                    <div class="menu_section">
-                                        <h3>Admin</h3>
+                                    
+                                       
                                         <ul class="nav side-menu">
                                             @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
                                             {*@
                                                 <li>
-                                                    <a><i class="fa fa-credit-card"></i>Singapore<span class="fa fa-chevron-down"></span></a>
+                                                    <a><i class="fa fa-list-ol"></i>Singapore<span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
                                                         <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Updates</a></li>
                                                         <li><a href="#" data-toggle="modal" data-target="#sp2report-modal">Update work orders</a></li>
