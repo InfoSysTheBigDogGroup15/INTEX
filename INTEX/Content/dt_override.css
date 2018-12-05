@@ -1,0 +1,39 @@
+﻿.pagination > li > a, .pagination > li > span {
+    background-color: #ccc;
+    color: black;
+}
+
+    .pagination > li > a:hover, .pagination > li > span:hover {
+        background-color: #aaa;
+        color: black;
+    }
+
+.pagination > li.active > a, .pagination > li.active > span {
+    background-color: #aaa;
+    color: black;
+}
+
+    .pagination > li.active > a:hover, .pagination > li.active > span:hover {
+        background-color: #aaa;
+        color: black;
+    }
+
+.pagination > li.disabled > a, .pagination > li.disabled > span {
+    background-color: #ccc;
+    color: black;
+}
+
+    .pagination > li.disabled > a:hover, .pagination > li.disabled > span:hover {
+        background-color: #ccc;
+        color: black;
+    }
+
+.pagination > li.disabled > a, .pagination > li.disabled > span {
+    background-color: #ccc;
+    color: black;
+}
+
+    .pagination > li.disabled > a:focus, .pagination > li.disabled > span:focus {
+        background-color: #aaa;
+        color: black;
+    }

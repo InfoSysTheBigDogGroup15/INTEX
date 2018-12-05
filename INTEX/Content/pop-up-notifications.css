@@ -1,0 +1,11 @@
+﻿#popup-notification-wrapper {
+    z-index: 999;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10%;
+}

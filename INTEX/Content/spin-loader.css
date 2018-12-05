@@ -1,0 +1,76 @@
+﻿.spinner {
+    z-index: 999;
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #62B9E8; /* Blue */
+    border-bottom: 8px solid #62B9E8; /* Blue */
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.spinner-text {
+    z-index: 99;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    position: absolute;
+    padding-top: 40px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.loading {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    border-radius: 10px;
+}
+
+.done {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    display: none;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    border-radius: 50%;
+}
+
+.bg-dimmer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: #000; /* Just to visualize the extent */
+    opacity: 0.4;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
