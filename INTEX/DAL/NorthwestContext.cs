@@ -1,8 +1,8 @@
 ﻿using INTEX.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -16,7 +16,7 @@ namespace INTEX.DAL
         }
 
         public DbSet<Client> Client { get; set; }
-        public DbSet<Component> Component { get; set; }
+        public DbSet<Compound> Component { get; set; }
         public DbSet<Discount> Discount { get; set; }
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Sample> Sample { get; set; }
