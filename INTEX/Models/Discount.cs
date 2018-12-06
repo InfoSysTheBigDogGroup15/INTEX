@@ -22,7 +22,7 @@ namespace INTEX.Models
 
         [DisplayName("Discount Percentage")]
         [Required(ErrorMessage = "Please enter the discount percentage")]
-        public double percentDiscount { get; set; }
+        public decimal percentDiscount { get; set; }
 
     }
 }
