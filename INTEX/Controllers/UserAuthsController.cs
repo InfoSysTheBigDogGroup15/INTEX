@@ -37,8 +37,9 @@ namespace INTEX.Controllers
         }
 
         // GET: UserAuths/Create
-        public ActionResult Create()
+        public ActionResult Create(int? clientID)
         {
+            ViewBag.clientId = clientID;
             return View();
         }
 

@@ -55,11 +55,11 @@ namespace INTEX.Controllers
             {
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "UserAuth", client.authorizationID);
             }
 
             ViewBag.authorizationID = new SelectList(db.UserAuths, "authorizationID", "username", client.authorizationID);
-            return View(client);
+            return RedirectToAction("Edit", "UserAuth", client.authorizationID);
         }
 
         // GET: Clients/Edit/5
@@ -128,6 +128,21 @@ namespace INTEX.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult displayCustomerOrders(int? clientID)
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.clientID== clientID)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+            return View(clientAssayList);
         }
     }
 }
