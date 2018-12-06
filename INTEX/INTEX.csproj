@@ -212,6 +212,7 @@
     <Content Include="Content\favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\google-maps-icon.png" />
+    <Content Include="Content\GrantStyles.css" />
     <Content Include="Content\ios_how_to.png" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\loading.gif" />
