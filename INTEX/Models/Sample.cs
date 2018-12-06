@@ -22,7 +22,7 @@ namespace INTEX.Models
 
         [DisplayName("Sequence Number")]
         [Required(ErrorMessage = "Please enter the sequence number")]
-        [RegularExpression(@"^[0-9]{0,15}$")]
+        [RegularExpression("^[0-9]+$")]
         public int sequenceNumber { get; set; }
 
         [DisplayName("Test ID")]

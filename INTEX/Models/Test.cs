@@ -31,7 +31,7 @@ namespace INTEX.Models
 
         [DisplayName("Number of Days")]
         [Required(ErrorMessage = "Please enter the number of days to complete the project")]
-        [RegularExpression(@"^[0-9]{0,15}$")]
+        [RegularExpression("^[0-9]+$")]
         public int numDays { get; set; }
     }
 }

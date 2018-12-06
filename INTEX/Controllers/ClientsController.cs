@@ -49,7 +49,7 @@ namespace INTEX.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "clientID,clientFirstName,clientLastName,clientStreetAddress,clientCity,clientState,clientZip,clientPhoneNumber,clientEmail,clientCardNumber,clientCardCvc,authorizationID")] Client client)
+        public ActionResult Create([Bind(Include = "Authentication.username, Authentication.password, clientID,clientFirstName,clientLastName,clientStreetAddress,clientCity,clientState,clientZip,clientPhoneNumber,clientEmail,clientCardNumber,clientCardCvc")] Client client)
         {
             if (ModelState.IsValid)
             {
