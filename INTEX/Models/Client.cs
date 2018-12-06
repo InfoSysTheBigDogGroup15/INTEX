@@ -59,13 +59,13 @@ namespace INTEX.Models
 
         [DisplayName("Credit Card Number")]
         [Required(ErrorMessage = "Please enter your card")]
-        [StringLength(16)]
+        [StringLength(16, MinimumLength = 16)]
         [RegularExpression(@"^[0-9]{0,15}$")]
         public String clientCardNumber { get; set; }
 
         [DisplayName("CVC Number")]
         [Required(ErrorMessage = "Please enter your security code")]
-        [StringLength(3)]
+        [StringLength(3, MinimumLength = 3)]
         [RegularExpression(@"^[0-9]{0,15}$")]
         public String clientCardCvc { get; set; }
 
