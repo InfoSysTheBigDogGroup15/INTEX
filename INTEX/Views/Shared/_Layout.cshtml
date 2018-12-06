@@ -158,7 +158,7 @@
                                             <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("Index", "Assays")">2 Catalogs</a></li> @*todo*@
-                                                <li><a href="@Url.Action("Index", "Assays")">Get quote</a></li>
+                                                <li><a href="@Url.Action("Create", "Assays")">Get quote</a></li>
                                                 <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>
                                             </ul>
                                         </li>
@@ -168,7 +168,7 @@
                                         <li>
                                             <a><i class="fa fa-users"></i>Active Clients<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "HR")">All clients orders</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">All clients orders</a></li>
                                                 @*@if (User.IsInRole("Admin"))
                 {*@
                                                 <li><a href="@Url.Action("Index", "Users")">1 orders tests </a></li>
@@ -176,7 +176,7 @@
                                                 @*}*@
 
                                                 <li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>
-                                                <li><a href="@Url.Action("AddSP1User", "Admin")">New order (request quote)</a></li>
+                                                <li><a href="@Url.Action("Create", "Assays")">New order (request quote)</a></li>
                                             </ul>
                                         </li>
 
@@ -193,7 +193,7 @@
                                         <li>
                                             <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("SendTextMessages", "Admin")">Create client</a></li>
+                                                <li><a href="@Url.Action("Create", "Clients")">Create client</a></li>
                                                 <li><a href="@Url.Action("Index", "VideoApplications")">Approve work order</a></li>
                                                 <li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
                                                 <li><a href="@Url.Action("Index", "Announcements")">Alerts</a></li>
