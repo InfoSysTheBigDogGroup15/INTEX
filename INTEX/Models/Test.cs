@@ -23,11 +23,11 @@ namespace INTEX.Models
 
         [DisplayName("Base Cost")]
         [Required(ErrorMessage = "Please enter base cost")]
-        public double baseCost { get; set; }
+        public decimal baseCost { get; set; }
 
         [DisplayName("Hourly Wage")]
         [Required(ErrorMessage = "Please enter the hourly wage")]
-        public double hourlyWage { get; set; }
+        public decimal hourlyWage { get; set; }
 
         [DisplayName("Number of Days")]
         [Required(ErrorMessage = "Please enter the number of days to complete the project")]
