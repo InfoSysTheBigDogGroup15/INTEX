@@ -93,12 +93,12 @@
                                         <li>
                                             <a><i class="fa fa-building"></i> Seattle <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("SP2Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">Alerts or Tasks</a></li>
-                                                <li><a href="@Url.Action("SP1Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">All Assays</a></li>
-                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">All Orders</a></li>
-                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">Manangement</a></li>
-                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">Manangement(view sales report)</a></li>
-                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">Create result summary report </a></li>
+                                                <li><a href="@Url.Action("Index", "Tests", null @*new { UserID = User.Identity.Name }*@)">Alerts or Tasks</a></li>@*todo*@
+                                                <li><a href="@Url.Action("Index", "Tests", null @*new { UserID = User.Identity.Name }*@)">All Individual tests</a></li>
+                                                <li><a href="@Url.Action("Index", "Tests", null @*new { DateDecrement = 0 }*@)">All Orders</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays", null @*new { DateDecrement = 0 }*@)">Manangement</a></li> @*todo*@
+                                                <li><a href="@Url.Action("Index", "Assays", null @*new { DateDecrement = 0 }*@)">Manangement(view sales report)</a></li> @*todo*@
+                                                <li><a href="@Url.Action("Index", "Assays", null @*{ DateDecrement = 0 }*@)">Create result summary report </a></li> @*todo*@
                                             </ul>
                                         </li>
                                        
@@ -114,18 +114,25 @@
                                         <li>
                                             <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
-                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
-                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">Requests Dashboards</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">Work Orders</a></li>
+                                                <li><a href="@Url.Action("Index", "Tests")">All tests</a></li>
+
+                                                @*<li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>*@
                                                 <li>
                                                     <a>Schedule<span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
                                                         <li class="sub_menu">
 
                                                         <li>
-                                                            <a href="@Url.Action("SP2ReportConfig", "Reports", null)">Schedule Assays </a>
+                                                            <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a> @*todo*@
                                                         </li>
-                                                    </ul>     <a href="@Url.Action("SP1RegionIndex", "Reports", null)">Edit Schedule</a>
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
+                                                        </li>
+                                                    </ul>
                                                 </li>
 
                                             </ul>
@@ -133,11 +140,10 @@
                                         <li>
                                             <a><i class="fa fa-dollar"></i>Billing<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">Work Orders</a></li>
-                                                <li><a href="@Url.Action("Index", "PayrollPlans")">Record special requests(client) on work order</a></li>
-                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">Create discount request</a></li>
-                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">Create discount request</a></li>
-                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">Invoices</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">Work Orders</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">Record special requests(client) on work order</a></li> @*todo*@
+                                                <li><a href="@Url.Action("Index", "Assays")">Create discount request</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">Invoices</a></li>
                                             </ul>
                                         </li>
 
@@ -150,9 +156,9 @@
                                         <li>
                                             <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">2 Catalogs</a></li>
-                                                <li><a href="@Url.Action("Index", "PayrollPlans")">Get quote</a></li>
-                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">About Us</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">2 Catalogs</a></li> @*todo*@
+                                                <li><a href="@Url.Action("Index", "Assays")">Get quote</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>
                                             </ul>
                                         </li>
 
