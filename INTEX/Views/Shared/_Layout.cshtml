@@ -99,7 +99,11 @@
                                                 <li><a href="@Url.Action("Index", "Tests", null @*new { DateDecrement = 0 }*@)">All Orders</a></li>
                                                 <li><a href="@Url.Action("Index", "Assays", null @*new { DateDecrement = 0 }*@)">Manangement</a></li> @*todo*@
                                                 <li><a href="@Url.Action("Index", "Assays", null @*new { DateDecrement = 0 }*@)">Manangement(view sales report)</a></li> @*todo*@
-                                                <li><a href="@Url.Action("Index", "Assays", null @*{ DateDecrement = 0 }*@)">Create result summary report </a></li> @*todo*@
+                                                <li><a href="@Url.Action("Index", "Assays", null @*{ DateDecrement = 0 }*@)">***Create result summary report </a></li> @*Once Singapore attaches teh RAW results to a work order, the director
+                                                                                                                                                                           is notified, the director can then download the raw results and create
+                                                                                                                                                                           the summary report, then reattach the summary report as a PDF to the 
+                                                                                                                                                                           work order. The client is then updated that their results are in.
+                                                                                                                                                                           From there the status of their work order is either complete or pending payment*@
                                             </ul>
                                         </li>
                                        
@@ -115,9 +119,11 @@
                                         <li>
                                             <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "Assays")">Requests Dashboards</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays")">Work Orders</a></li>
-                                                <li><a href="@Url.Action("Index", "Tests")">All tests</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">***Requests Dashboards</a></li>@*OUR PROPOSED SOLUTION INCLUDES USING RFID IN THE SINGAPORE LAB TO AUTOMATICALLY UPDATE STATUS OF TESTS AND WORK ORDERS
+                                                                                                                                ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
+                                                <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li> @* add LT number and sequence number (THIS IS PERFORMED BY THE RFID TAGS/READER, but we need to fake it for the demo. This is the same step that the tests are compelted.
+                                                                                                                         On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
+                                                <li><a href="@Url.Action("Index", "Tests")">***All tests</a></li>
 
                                                 @*<li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
         <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
@@ -157,7 +163,7 @@
                                         <li>
                                             <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "Assays")">2 Catalogs</a></li> @*todo*@
+                                                <li><a href="@Url.Action("Index", "Assays")">***2 Catalogs</a></li> @*todo*@
                                                 <li><a href="@Url.Action("Index", "Assays")">Get quote</a></li>
                                                 <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>
                                             </ul>
@@ -168,15 +174,24 @@
                                         <li>
                                             <a><i class="fa fa-users"></i>Active Clients<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "HR")">All clients orders</a></li>
+                                                <li><a href="@Url.Action("Index", "HR")">***My Orders</a></li> @*From this page you can access the Tests_records view. Each work order has a list of tests that are being done in the work order
+                                                                                                                   The way to access the tests_records view is to select a "More details" button next to a specific work order on the My orders view.
+                                                                                                                   From the tests views clients *@
                                                 @*@if (User.IsInRole("Admin"))
-                {*@
+        {*@
                                                 <li><a href="@Url.Action("Index", "Users")">1 orders tests </a></li>
                                                 <li><a href="@Url.Action("Index", "Users")">Active tests </a></li>
                                                 @*}*@
 
                                                 <li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>
-                                                <li><a href="@Url.Action("AddSP1User", "Admin")">New order (request quote)</a></li>
+                                                <li><a href="@Url.Action("AddSP1User", "Admin")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view: 
+                                                                                                                              CONFIRMATION VIEW CONTAINS AN OPTION TO PRINT A SHIPPING LABEL FOR CUSTOMER TO SHIP THEIR SAMPLES
+                                                                                                                              *@
+                                                <li><a href="@Url.Action("AddSP1User", "Admin")">***New Order (add multiple tests)</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
+                                                @*Each work order has a few extra options in it: 1. approve all necessary additional tests 2. Receive status Email updates of  (bool field in DB) 3. Request hard copy of results
+                                                    ONCE THE ORDER IS COMPLETE, THE WORK ORDER IS CREATED IN DB, 
+                                                    THE STATUS OF THE W/O IS CHANGED TO "WAITING FOR SAMPLES"
+                                                    ***WHENEVER A STATUS CHANGES, ALL DASHBOARDS SHOULD SHOW AN ALERT SYMBOL NEXT TO THAT RECORD.****@
                                             </ul>
                                         </li>
 
@@ -193,8 +208,8 @@
                                         <li>
                                             <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("SendTextMessages", "Admin")">Create client</a></li>
-                                                <li><a href="@Url.Action("Index", "VideoApplications")">Approve work order</a></li>
+                                                <li><a href="@Url.Action("SendTextMessages", "Admin")">***Create client</a></li>
+                                                <li><a href="@Url.Action("Index", "VideoApplications")">***Approve work order</a></li>
                                                 <li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
                                                 <li><a href="@Url.Action("Index", "Announcements")">Alerts</a></li>
                                             </ul>
