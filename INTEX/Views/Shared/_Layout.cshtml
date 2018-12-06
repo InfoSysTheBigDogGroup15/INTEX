@@ -94,12 +94,12 @@
                                         <li>
                                             <a><i class="fa fa-building"></i> Seattle <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "Tests", null @*new { UserID = User.Identity.Name }*@)">Alerts or Tasks</a></li>@*todo*@
-                                                <li><a href="@Url.Action("Index", "Tests", null @*new { UserID = User.Identity.Name }*@)">All Individual tests</a></li>
-                                                <li><a href="@Url.Action("Index", "Tests", null @*new { DateDecrement = 0 }*@)">All Orders</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays", null @*new { DateDecrement = 0 }*@)">Manangement</a></li> @*todo*@
-                                                <li><a href="@Url.Action("Index", "Assays", null @*new { DateDecrement = 0 }*@)">Manangement(view sales report)</a></li> @*todo*@
-                                                <li><a href="@Url.Action("Index", "Assays", null @*{ DateDecrement = 0 }*@)">***Create result summary report </a></li> @*Once Singapore attaches teh RAW results to a work order, the director
+                                                @*<li><a href="@Url.Action("Index", "Tests", null )">Alerts or Tasks</a></li>
+                                                <li><a href="@Url.Action("Index", "Tests", null )">All Individual tests</a></li>
+                                                <li><a href="@Url.Action("Index", "Tests", null )">All Orders</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays", null )">Manangement</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays", null )">Manangement(view sales report)</a></li> *@
+                                                <li><a href="@Url.Action("Index", "Assays", null )">***Create result summary report </a></li> @*Once Singapore attaches teh RAW results to a work order, the director
                                                                                                                                                                            is notified, the director can then download the raw results and create
                                                                                                                                                                            the summary report, then reattach the summary report as a PDF to the 
                                                                                                                                                                            work order. The client is then updated that their results are in.
@@ -128,31 +128,31 @@
                                                 @*<li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
         <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
         <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>*@
-                                                <li>
+                                                @*<li>
                                                     <a>Schedule<span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
                                                         <li class="sub_menu">
 
                                                         <li>
-                                                            <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a> @*todo*@
+                                                            <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a> 
                                                         </li>
                                                         <li>
                                                             <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
                                                         </li>
                                                     </ul>
-                                                </li>
+                                                </li>*@
 
                                             </ul>
                                         </li>
-                                        <li>
+                                        @*<li>
                                             <a><i class="fa fa-dollar"></i>Billing<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("Index", "Assays")">Work Orders</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays")">Record special requests(client) on work order</a></li> @*todo*@
+                                                <li><a href="@Url.Action("Index", "Assays")">Record special requests(client) on work order</a></li> 
                                                 <li><a href="@Url.Action("Index", "Assays")">Create discount request</a></li>
                                                 <li><a href="@Url.Action("Index", "Assays")">Invoices</a></li>
                                             </ul>
-                                        </li>
+                                        </li>*@
 
 
 
@@ -164,8 +164,8 @@
                                             <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("Index", "Assays")">***2 Catalogs</a></li> @*todo*@
-                                                <li><a href="@Url.Action("Index", "Assays")">Get quote</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>
+                                                @*<li><a href="@Url.Action("Index", "Assays")">Get quote</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>*@
                                             </ul>
                                         </li>
 
@@ -174,45 +174,45 @@
                                         <li>
                                             <a><i class="fa fa-users"></i>Active Clients<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "HR")">***My Orders</a></li> @*From this page you can access the Tests_records view. Each work order has a list of tests that are being done in the work order
-                                                                                                                   The way to access the tests_records view is to select a "More details" button next to a specific work order on the My orders view.
-                                                                                                                   From the tests views clients *@
+                                                <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***My Orders</a></li> @*From this page you can access the Tests_records view. Each work order has a list of tests that are being done in the work order
+        The way to access the tests_records view is to select a "More details" button next to a specific work order on the My orders view.
+        From the tests views clients *@
                                                 @*@if (User.IsInRole("Admin"))
         {*@
-                                                <li><a href="@Url.Action("Index", "Users")">1 orders tests </a></li>
-                                                <li><a href="@Url.Action("Index", "Users")">Active tests </a></li>
+                                                @*<li><a href="@Url.Action("Index", "Users")">1 orders tests </a></li>
+        <li><a href="@Url.Action("Index", "Users")">Active tests </a></li ><li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>*@
                                                 @*}*@
 
-                                                <li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>
-                                                <li><a href="@Url.Action("AddSP1User", "Admin")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view: 
-                                                                                                                              CONFIRMATION VIEW CONTAINS AN OPTION TO PRINT A SHIPPING LABEL FOR CUSTOMER TO SHIP THEIR SAMPLES
-                                                                                                                              *@
+
+                                                <li><a href="@Url.Action("AddSP1User", "Admin")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view:
+        CONFIRMATION VIEW CONTAINS AN OPTION TO PRINT A SHIPPING LABEL FOR CUSTOMER TO SHIP THEIR SAMPLES
+                                                *@
                                                 <li><a href="@Url.Action("AddSP1User", "Admin")">***New Order (add multiple tests)</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
                                                 @*Each work order has a few extra options in it: 1. approve all necessary additional tests 2. Receive status Email updates of  (bool field in DB) 3. Request hard copy of results
-                                                    ONCE THE ORDER IS COMPLETE, THE WORK ORDER IS CREATED IN DB, 
-                                                    THE STATUS OF THE W/O IS CHANGED TO "WAITING FOR SAMPLES"
-                                                    ***WHENEVER A STATUS CHANGES, ALL DASHBOARDS SHOULD SHOW AN ALERT SYMBOL NEXT TO THAT RECORD.****@
+        ONCE THE ORDER IS COMPLETE, THE WORK ORDER IS CREATED IN DB,
+        THE STATUS OF THE W/O IS CHANGED TO "WAITING FOR SAMPLES"
+        ***WHENEVER A STATUS CHANGES, ALL DASHBOARDS SHOULD SHOW AN ALERT SYMBOL NEXT TO THAT RECORD.****@
                                             </ul>
                                         </li>
 
                                         @*@if (User.IsInRole("Admin"))
         {*@
-                                        <li>
+                                        @*<li>
                                             <a><i class="fa fa-compress"></i>Contact us<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("SendTextMessages", "Admin")">Chat</a></li>
                                                 <li><a href="@Url.Action("Index", "VideoApplications")">Contact</a></li>
                                                 <li><a href="@Url.Action("Index", "Announcements")">Frequently asked questions</a></li>
                                             </ul>
-                                        </li>
+                                        </li>*@
                                         <li>
                                             <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("SendTextMessages", "Admin")">***Create client</a></li>
                                                 <li><a href="@Url.Action("Index", "VideoApplications")">***Approve work order</a></li>
-                                                <li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
+                                                @*<li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
                                                 <li><a href="@Url.Action("Index", "Announcements")">Alerts</a></li>
-                                            </ul>
+                                            </ul>*@
                                         </li>
                                         @*}*@
                                     </ul>
@@ -270,17 +270,17 @@
                                                         <div class="col-md-10 col-md-offset-1">
                                                             <label>Quick Dates: &nbsp;&nbsp;</label>
                                                             <div class="btn-group">
-                                                                @Html.ActionLink("Today", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
+                                                                @*@Html.ActionLink("Today", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
                                                                 @Html.ActionLink("Yesterday", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
                                                                 @Html.ActionLink("Past 7 Days", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddDays(-7).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
-                                                                @Html.ActionLink("Past Month", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddMonths(-1).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
+                                                                @Html.ActionLink("Past Month", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddMonths(-1).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })*@
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <br />
                                                     <br />
                                                     <h4><b>Custom Date Range:</b></h4>
-                                                    @using (Html.BeginForm("SP1WeeklyReport_v2", "Reports", FormMethod.Post))
+                                                    @*@using (Html.BeginForm("SP1WeeklyReport_v2", "Reports", FormMethod.Post))
                                                     {
                                                         @Html.AntiForgeryToken()
                                                         <div class="row report-only">
@@ -315,7 +315,7 @@
                                                                 <input class="btn btn-success" onclick="turnOnBrioOpacityLoader();" type="submit" name="submit" value="Go" />
                                                             </div>
                                                         </div>
-                                                    }
+                                                    }*@
                                                 </div>
                                             </div>
 
@@ -330,7 +330,7 @@
                                                     <h4 class="modal-title">Generate SP2 Report</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    @using (Html.BeginForm("SP2Report", "Reports", FormMethod.Post))
+                                                    @*@using (Html.BeginForm("SP2Report", "Reports", FormMethod.Post))
                                                     {
                                                         @Html.AntiForgeryToken()
                                                         <div class="row">
@@ -367,7 +367,7 @@
                                                                 <input class="btn btn-success" onclick="turnOnBrioOpacityLoader();" type="submit" name="submit" value="Go" />
                                                             </div>
                                                         </div>
-                                                    }
+                                                    }*@
                                                 </div>
                                             </div>
 
@@ -459,7 +459,7 @@
     <script src="~/signalr/js/"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.2/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.2/datatables.min.js"></script>
-    <script>
+    @*<script>
         $("#menu_toggle").click(function () {
             $("#brio-logo").toggle();
         });
@@ -477,7 +477,7 @@
                 format: 'ddd MM/DD/YYYY',
             });
         });
-    </script>
+    </script>*@
     @RenderSection("scripts", required: false)
 </body>
 </html>
