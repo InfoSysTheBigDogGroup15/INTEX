@@ -18,6 +18,7 @@ namespace INTEX.Models
 
         [DisplayName("Status Description")]
         [Required(ErrorMessage = "Please enter the Status Description")]
+        [StringLength(30)]
         public String statusDescription { get; set; }
     }
 }

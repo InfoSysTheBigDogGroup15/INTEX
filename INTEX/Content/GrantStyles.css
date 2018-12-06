@@ -1,0 +1,30 @@
+﻿body {
+}
+
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+input[type=button], input[type=submit], input[type=reset]   {
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    outline: none;
+    width: 1000px;
+    margin: 12px 0;
+}
+
+label {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}

@@ -17,16 +17,19 @@ namespace INTEX.Models
         public int employeeID { get; set; }
 
         [DisplayName("Employee First Name")]
+        [StringLength(30)]
         public String employeeFirstName { get; set; }
 
         [DisplayName("Employee Last Name")]
+        [StringLength(30)]
         public String employeeLastName { get; set; }
 
         [DisplayName("Employee Title")]
+        [StringLength(30)]
         public String title { get; set; }
 
         [DisplayName("Authorization ID")]
         public int? authorizationID { get; set; }
-        public virtual UserAuth Authorization { get; set; }
+        public virtual UserAuth UserAuth { get; set; }
     }
 }

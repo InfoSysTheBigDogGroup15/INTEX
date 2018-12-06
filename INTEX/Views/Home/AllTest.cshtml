@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<INTEX.Models.Sample>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "AllTest";
 }
 
-<h2>Index</h2>
+<h2>AllTest</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,19 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Assay.comments)
+            @Html.DisplayNameFor(model => model.assayID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Compound.compoundName)
+            @Html.DisplayNameFor(model => model.LTNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status.statusDescription)
+            @Html.DisplayNameFor(model => model.sequenceNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Test.testName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sequenceNumber)
+            @Html.DisplayNameFor(model => model.Status.statusDescription)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.testStatusDate)
@@ -35,19 +35,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Assay.comments)
+            @Html.DisplayFor(modelItem => item.assayID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Compound.compoundName)
+            @Html.DisplayFor(modelItem => item.LTNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Status.statusDescription)
+            @Html.DisplayFor(modelItem => item.sequenceNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Test.testName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.sequenceNumber)
+            @Html.DisplayFor(modelItem => item.Status.statusDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.testStatusDate)

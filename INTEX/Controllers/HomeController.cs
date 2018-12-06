@@ -43,5 +43,10 @@ namespace INTEX.Controllers
             //reroute find role send to dashboard
             return View();
         }
+
+        public ActionResult AllTest()
+        {
+            return View(db.Samples.ToList());
+        }
     }
 }

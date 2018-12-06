@@ -18,18 +18,20 @@ namespace INTEX.Models
 
         [DisplayName("Test Name")]
         [Required(ErrorMessage = "Please enter the test name")]
+        [StringLength(30)]
         public String testName { get; set; }
 
         [DisplayName("Base Cost")]
         [Required(ErrorMessage = "Please enter base cost")]
-        public double baseCost { get; set; }
+        public decimal baseCost { get; set; }
 
         [DisplayName("Hourly Wage")]
         [Required(ErrorMessage = "Please enter the hourly wage")]
-        public double hourlyWage { get; set; }
+        public decimal hourlyWage { get; set; }
 
         [DisplayName("Number of Days")]
         [Required(ErrorMessage = "Please enter the number of days to complete the project")]
+        [RegularExpression("^[0-9]+$")]
         public int numDays { get; set; }
     }
 }

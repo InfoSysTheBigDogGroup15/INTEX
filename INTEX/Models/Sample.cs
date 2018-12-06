@@ -22,7 +22,8 @@ namespace INTEX.Models
 
         [DisplayName("Sequence Number")]
         [Required(ErrorMessage = "Please enter the sequence number")]
-        public String sequenceNumber { get; set; }
+        [RegularExpression("^[0-9]+$")]
+        public int sequenceNumber { get; set; }
 
         [DisplayName("Test ID")]
         [Required(ErrorMessage = "Please enter test ID")]
@@ -34,6 +35,12 @@ namespace INTEX.Models
         public virtual Status Status { get; set; }
 
         [DisplayName("Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime testStatusDate { get; set; }
+
+        [DisplayName("Assay ID")]
+        public int assayID { get; set; }
+        public virtual Assay Assay { get; set; }
     }
 }

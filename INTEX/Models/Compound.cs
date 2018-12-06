@@ -18,6 +18,7 @@ namespace INTEX.Models
 
         [DisplayName("Compound Name")]
         [Required]
+        [StringLength(30)]
         public String compoundName { get; set; }
 
         [DisplayName("Compound Quantity")]
@@ -26,6 +27,8 @@ namespace INTEX.Models
 
         [DisplayName("Date Arrived")]
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dateArrived { get; set; }
 
         [DisplayName("Employee ID")]
@@ -35,23 +38,28 @@ namespace INTEX.Models
 
         [DisplayName("Due Date")]
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dateDue { get; set; }
 
         [DisplayName("Appearance")]
         [Required]
+        [StringLength(255)]
         public String appearance { get; set; }
 
         [DisplayName("Weight from Customer")]
         [Required]
-        public double weight { get; set; }
+        public decimal weight { get; set; }
 
         [DisplayName("Actual Weight")]
-        public double? actualWeight { get; set; }
+        public decimal? actualWeight { get; set; }
 
         [DisplayName("Maximum Tolerated Dose")]
-        public double? maximumToleratedDose { get; set; }
+        public decimal? maximumToleratedDose { get; set; }
 
         [DisplayName("Confirmation Sent Out Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? confirmationSentOutDate { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace INTEX.Controllers
         // GET: Samples
         public ActionResult Index()
         {
-            var samples = db.Samples.Include(s => s.Compound).Include(s => s.Status).Include(s => s.Test);
+            var samples = db.Samples.Include(s => s.Assay).Include(s => s.Compound).Include(s => s.Status).Include(s => s.Test);
             return View(samples.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace INTEX.Controllers
         // GET: Samples/Create
         public ActionResult Create()
         {
+            ViewBag.assayID = new SelectList(db.Assays, "assayID", "comments");
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName");
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription");
             ViewBag.testID = new SelectList(db.Tests, "testID", "testName");
@@ -51,7 +52,7 @@ namespace INTEX.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "sampleID,LTNumber,sequenceNumber,testID,statusID,testStatusDate")] Sample sample)
+        public ActionResult Create([Bind(Include = "sampleID,LTNumber,sequenceNumber,testID,statusID,testStatusDate,assayID")] Sample sample)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +61,7 @@ namespace INTEX.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.assayID = new SelectList(db.Assays, "assayID", "comments", sample.assayID);
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", sample.LTNumber);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", sample.statusID);
             ViewBag.testID = new SelectList(db.Tests, "testID", "testName", sample.testID);
@@ -78,6 +80,7 @@ namespace INTEX.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.assayID = new SelectList(db.Assays, "assayID", "comments", sample.assayID);
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", sample.LTNumber);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", sample.statusID);
             ViewBag.testID = new SelectList(db.Tests, "testID", "testName", sample.testID);
@@ -89,7 +92,7 @@ namespace INTEX.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "sampleID,LTNumber,sequenceNumber,testID,statusID,testStatusDate")] Sample sample)
+        public ActionResult Edit([Bind(Include = "sampleID,LTNumber,sequenceNumber,testID,statusID,testStatusDate,assayID")] Sample sample)
         {
             if (ModelState.IsValid)
             {
@@ -97,6 +100,7 @@ namespace INTEX.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.assayID = new SelectList(db.Assays, "assayID", "comments", sample.assayID);
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", sample.LTNumber);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", sample.statusID);
             ViewBag.testID = new SelectList(db.Tests, "testID", "testName", sample.testID);

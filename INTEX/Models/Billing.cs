@@ -20,18 +20,18 @@ namespace INTEX.Models
         public int clientID { get; set; }
 
         [Display(Name = "Employee ID")]
-        public int? employeeID { get; set; }
+        public int employeeID { get; set; }
 
         [Display(Name = "Discount ID")]
         public int? discountID { get; set; }
 
         [Display(Name = "Quote")]
-        public double? priceQuote { get; set; }
+        public decimal? priceQuote { get; set; }
 
         [Display(Name = "Price Before Discount")]
-        public double? priceBeforeDiscount { get; set; }
+        public decimal? priceBeforeDiscount { get; set; }
 
         [Display(Name = "Final Price")]
-        public double? finalPrice { get; set; }
+        public decimal? finalPrice { get; set; }
     }
 }

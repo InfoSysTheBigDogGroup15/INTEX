@@ -18,7 +18,7 @@ namespace INTEX.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            var employees = db.Employees.Include(e => e.Authorization);
+            var employees = db.Employees.Include(e => e.UserAuth);
             return View(employees.ToList());
         }
 

@@ -49,17 +49,17 @@ namespace INTEX.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "clientID,clientFirstName,clientLastName,clientStreetAddress,clientCity,clientState,clientZip,clientPhoneNumber,clientEmail,clientCardNumber,clientCardCvc,authorizationID")] Client client)
+        public ActionResult Create([Bind(Include = "Authentication.username, Authentication.password, clientID,clientFirstName,clientLastName,clientStreetAddress,clientCity,clientState,clientZip,clientPhoneNumber,clientEmail,clientCardNumber,clientCardCvc")] Client client)
         {
             if (ModelState.IsValid)
             {
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "UserAuth", client.authorizationID);
             }
 
             ViewBag.authorizationID = new SelectList(db.UserAuths, "authorizationID", "username", client.authorizationID);
-            return View(client);
+            return RedirectToAction("Edit", "UserAuth", client.authorizationID);
         }
 
         // GET: Clients/Edit/5
@@ -129,32 +129,22 @@ namespace INTEX.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult ClientCreateAssayOrder()
+
+        public ActionResult displayCustomerOrders(int? clientID)
         {
-            ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName");
-            ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName");
-            ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description");
-            ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription");
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ClientCreateAssayOrder([Bind(Include = "assayID,clientID,LTNumber,testID,discountID,comments,statusID,allowExtraTest")] Assay assay)
-        {
-            assay.statusID = 1;
-            if (ModelState.IsValid)
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
             {
-                db.Assays.Add(assay);
-                db.SaveChanges();
-                return View();
+                if (ass.clientID== clientID)
+                {
+                    clientAssayList.Add(ass);
+                }
             }
-            ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName", assay.clientID);
-            ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
-            ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
-            ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
-            return View();
+            return View(clientAssayList);
         }
-        public ActionResult ClientSuccessfulOrder()
+        public ActionResult ClientCreateAssayOrder()
         {
             return View();
         }
