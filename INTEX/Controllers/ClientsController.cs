@@ -144,5 +144,9 @@ namespace INTEX.Controllers
             }
             return View(clientAssayList);
         }
+        public ActionResult ClientCreateAssayOrder()
+        {
+            return View();
+        }
     }
 }
