@@ -13,6 +13,7 @@ namespace INTEX.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Employee ID")]
         public int employeeID { get; set; }
 
         [DisplayName("Employee First Name")]
@@ -23,5 +24,9 @@ namespace INTEX.Models
 
         [DisplayName("Employee Title")]
         public String title { get; set; }
+
+        [DisplayName("Authorization ID")]
+        public int? authorizationID { get; set; }
+        public virtual Authorization Authorization { get; set; }
     }
 }

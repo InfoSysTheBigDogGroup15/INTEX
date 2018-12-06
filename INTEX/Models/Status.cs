@@ -12,6 +12,8 @@ namespace INTEX.Models
     public class Status
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Status ID")]
         public int statusID { get; set; }
 
         [DisplayName("Status Description")]

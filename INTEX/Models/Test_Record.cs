@@ -12,15 +12,20 @@ namespace INTEX.Models
     public class Test_Record
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Test Record Number")]
         public int testRecordID { get; set; }
 
-        public int? workOrderID { get; set; }
-        public virtual Work_Order Work_Order { get; set; }
+        [DisplayName("Assay ID")]
+        public int assayID { get; set; }
+        public virtual Assay Assay { get; set; }
 
-        public int? sampleID { get; set; }
+        [DisplayName("Sample ID")]
+        public int sampleID { get; set; }
         public virtual Sample Sample { get; set; }
 
-        public int? testTubeID { get; set; }
+        [DisplayName("Tube ID")]
+        public int testTubeID { get; set; }
         public virtual Test_Tube Test_Tube { get; set; }
 
         [DisplayName("Numeric Result")]
