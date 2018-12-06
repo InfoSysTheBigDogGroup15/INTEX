@@ -18,6 +18,7 @@ namespace INTEX.Models
 
         [DisplayName("Description")]
         [Required(ErrorMessage = "Please enter the description")]
+        [StringLength(30)]
         public String description { get; set; }
 
         [DisplayName("Discount Percentage")]
