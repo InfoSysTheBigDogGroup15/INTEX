@@ -18,15 +18,18 @@ namespace INTEX.Models
 
         [Required]
         [Display(Name = "Username")]
+        [StringLength(30)]
         public String username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
+        [StringLength(30)]
         public String password { get; set; }
 
         [Required]
         [Display(Name = "Role")]
+        [StringLength(30)]
         public String role { get; set; }
     }
 }

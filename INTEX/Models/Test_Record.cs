@@ -30,14 +30,17 @@ namespace INTEX.Models
 
         [DisplayName("Numeric Result")]
         [Required(ErrorMessage = "Please enter the numeric result")]
+        [StringLength(50)]
         public String numericResult { get; set; }
 
         [DisplayName("Judgement Information")]
         [Required(ErrorMessage = "Please enter the judgement information")]
+        [StringLength(255)]
         public String judgementInfo { get; set; }
 
         [DisplayName("Comments")]
         [Required(ErrorMessage = "Please enter any comments")]
+        [StringLength(255)]
         public String comments { get; set; }
     }
 }

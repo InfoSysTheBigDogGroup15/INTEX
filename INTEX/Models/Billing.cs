@@ -20,7 +20,7 @@ namespace INTEX.Models
         public int clientID { get; set; }
 
         [Display(Name = "Employee ID")]
-        public int? employeeID { get; set; }
+        public int employeeID { get; set; }
 
         [Display(Name = "Discount ID")]
         public int? discountID { get; set; }

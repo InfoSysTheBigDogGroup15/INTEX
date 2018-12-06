@@ -33,6 +33,7 @@ namespace INTEX.Models
         public virtual Discount Discount { get; set; }
 
         [DisplayName("Comments")]
+        [StringLength(255)]
         public String comments { get; set; }
 
         [DisplayName("Status ID")]

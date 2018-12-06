@@ -4670,11 +4670,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Compounds\Create.cshtml" />
-    <Content Include="Views\Compounds\Delete.cshtml" />
-    <Content Include="Views\Compounds\Details.cshtml" />
-    <Content Include="Views\Compounds\Edit.cshtml" />
-    <Content Include="Views\Compounds\Index.cshtml" />
     <Content Include="Views\Billings\Create.cshtml" />
     <Content Include="Views\Billings\Delete.cshtml" />
     <Content Include="Views\Billings\Details.cshtml" />
@@ -4695,11 +4690,6 @@
     <Content Include="Views\UserAuths\Details.cshtml" />
     <Content Include="Views\UserAuths\Edit.cshtml" />
     <Content Include="Views\UserAuths\Index.cshtml" />
-    <Content Include="Views\Employees\Create.cshtml" />
-    <Content Include="Views\Employees\Delete.cshtml" />
-    <Content Include="Views\Employees\Details.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Clients\Create.cshtml" />
     <Content Include="Views\Clients\Delete.cshtml" />
     <Content Include="Views\Clients\Details.cshtml" />
@@ -4715,11 +4705,6 @@
     <Content Include="Views\Status\Details.cshtml" />
     <Content Include="Views\Status\Edit.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
-    <Content Include="Views\Samples\Create.cshtml" />
-    <Content Include="Views\Samples\Delete.cshtml" />
-    <Content Include="Views\Samples\Details.cshtml" />
-    <Content Include="Views\Samples\Edit.cshtml" />
-    <Content Include="Views\Samples\Index.cshtml" />
     <Content Include="Views\Test_Record\Create.cshtml" />
     <Content Include="Views\Test_Record\Delete.cshtml" />
     <Content Include="Views\Test_Record\Details.cshtml" />
@@ -4730,6 +4715,21 @@
     <Content Include="Views\Test_Tube\Details.cshtml" />
     <Content Include="Views\Test_Tube\Edit.cshtml" />
     <Content Include="Views\Test_Tube\Index.cshtml" />
+    <Content Include="Views\Samples\Create.cshtml" />
+    <Content Include="Views\Samples\Delete.cshtml" />
+    <Content Include="Views\Samples\Details.cshtml" />
+    <Content Include="Views\Samples\Edit.cshtml" />
+    <Content Include="Views\Samples\Index.cshtml" />
+    <Content Include="Views\Compounds\Create.cshtml" />
+    <Content Include="Views\Compounds\Delete.cshtml" />
+    <Content Include="Views\Compounds\Details.cshtml" />
+    <Content Include="Views\Compounds\Edit.cshtml" />
+    <Content Include="Views\Compounds\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
