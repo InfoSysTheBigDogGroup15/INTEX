@@ -12,6 +12,8 @@ namespace INTEX.Models
     public class Test
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Test ID")]
         public int testID { get; set; }
 
         [DisplayName("Test Name")]

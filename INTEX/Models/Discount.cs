@@ -12,6 +12,8 @@ namespace INTEX.Models
     public class Discount
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Discount ID")]
         public int discountID { get; set; }
 
         [DisplayName("Description")]

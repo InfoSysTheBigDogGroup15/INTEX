@@ -24,6 +24,8 @@ namespace INTEX.DAL
         public DbSet<Test> Test { get; set; }
         public DbSet<Test_Record> Test_Record { get; set; }
         public DbSet<Test_Tube> Test_Tube { get; set; }
-        public DbSet<Work_Order> Work_Order { get; set; }
+        public DbSet<Assay> Assay { get; set; }
+        public DbSet<Authorization> Authorization { get; set; }
+        public DbSet<Billing> Billing { get; set; }
     }
 }

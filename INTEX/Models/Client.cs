@@ -12,6 +12,8 @@ namespace INTEX.Models
     public class Client
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Client ID")]
         public int clientID { get; set; }
 
         [DisplayName("First Name")]
@@ -22,7 +24,7 @@ namespace INTEX.Models
         [Required(ErrorMessage = "Please enter your last name")]
         public String clientLastName { get; set; }
 
-        [DisplayName("Address")]
+        [DisplayName("Street Address")]
         [Required(ErrorMessage = "Please enter your address")]
         public String clientStreetAddress { get; set; }
 
@@ -55,13 +57,8 @@ namespace INTEX.Models
         [Required(ErrorMessage = "Please enter your security code")]
         public String clientCardCvc { get; set; }
 
-        [DisplayName("Username")]
-        [Required(ErrorMessage = "Please enter your username")]
-        public String clientUserName { get; set; }
-
-        [DisplayName("Password")]
-        [Required(ErrorMessage = "Please enter your password")]
-        public String clientPassword { get; set; }
-
+        [DisplayName("Authorization ID")]
+        public int? authorizationID { get; set; }
+        public virtual Authorization Authorization { get; set; }
     }
 }

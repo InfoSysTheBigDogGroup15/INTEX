@@ -12,13 +12,16 @@ namespace INTEX.Models
     public class Test_Tube
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Tube ID")]
         public int testTubeID { get; set; }
 
         [DisplayName("Concentration")]
         [Required(ErrorMessage = "Please enter the concentration")]
         public String concentration { get; set; }
 
-        public int? testID { get; set; }
+        [DisplayName("Test ID")]
+        public int testID { get; set; }
         public virtual Test Test { get; set; }
     }
 }
