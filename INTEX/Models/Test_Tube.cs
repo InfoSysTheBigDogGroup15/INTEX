@@ -18,6 +18,7 @@ namespace INTEX.Models
 
         [DisplayName("Concentration")]
         [Required(ErrorMessage = "Please enter the concentration")]
+        [StringLength(30)]
         public String concentration { get; set; }
 
         [DisplayName("Test ID")]
