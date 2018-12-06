@@ -49,13 +49,13 @@ namespace INTEX.Models
 
         [DisplayName("Weight from Customer")]
         [Required]
-        public double weight { get; set; }
+        public decimal weight { get; set; }
 
         [DisplayName("Actual Weight")]
-        public double? actualWeight { get; set; }
+        public decimal? actualWeight { get; set; }
 
         [DisplayName("Maximum Tolerated Dose")]
-        public double? maximumToleratedDose { get; set; }
+        public decimal? maximumToleratedDose { get; set; }
 
         [DisplayName("Confirmation Sent Out Date")]
         [DataType(DataType.Date)]

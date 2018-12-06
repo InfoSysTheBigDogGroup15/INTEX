@@ -38,5 +38,9 @@ namespace INTEX.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime testStatusDate { get; set; }
+
+        [DisplayName("Assay ID")]
+        public int assayID { get; set; }
+        public virtual Assay Assay { get; set; }
     }
 }

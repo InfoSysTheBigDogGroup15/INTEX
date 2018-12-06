@@ -4715,11 +4715,6 @@
     <Content Include="Views\Test_Tube\Details.cshtml" />
     <Content Include="Views\Test_Tube\Edit.cshtml" />
     <Content Include="Views\Test_Tube\Index.cshtml" />
-    <Content Include="Views\Samples\Create.cshtml" />
-    <Content Include="Views\Samples\Delete.cshtml" />
-    <Content Include="Views\Samples\Details.cshtml" />
-    <Content Include="Views\Samples\Edit.cshtml" />
-    <Content Include="Views\Samples\Index.cshtml" />
     <Content Include="Views\Compounds\Create.cshtml" />
     <Content Include="Views\Compounds\Delete.cshtml" />
     <Content Include="Views\Compounds\Details.cshtml" />
@@ -4732,6 +4727,12 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Clients\displayCustomerOrders.cshtml" />
     <Content Include="Views\Clients\ClientCreateAssayOrder.cshtml" />
+    <Content Include="Views\Samples\Create.cshtml" />
+    <Content Include="Views\Samples\Delete.cshtml" />
+    <Content Include="Views\Samples\Details.cshtml" />
+    <Content Include="Views\Samples\Edit.cshtml" />
+    <Content Include="Views\Samples\Index.cshtml" />
+    <Content Include="Views\Home\AllTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
