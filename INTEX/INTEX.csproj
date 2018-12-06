@@ -4732,6 +4732,7 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Clients\displayCustomerOrders.cshtml" />
     <Content Include="Views\Clients\ClientCreateAssayOrder.cshtml" />
+    <Content Include="Views\Clients\ClientSuccessfulOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

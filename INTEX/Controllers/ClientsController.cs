@@ -146,6 +146,32 @@ namespace INTEX.Controllers
         }
         public ActionResult ClientCreateAssayOrder()
         {
+            ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName");
+            ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName");
+            ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description");
+            ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription");
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ClientCreateAssayOrder([Bind(Include = "assayID,clientID,LTNumber,testID,discountID,comments,statusID,allowExtraTest")] Assay assay)
+        {
+            assay.statusID = 1;
+            if (ModelState.IsValid)
+            {
+                db.Assays.Add(assay);
+                db.SaveChanges();
+                return View();
+            }
+            ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName", assay.clientID);
+            ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
+            ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
+            ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
+
+            return View();
+        }
+        public ActionResult ClientSuccessfulOrder()
+        {
             return View();
         }
     }

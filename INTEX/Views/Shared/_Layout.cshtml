@@ -187,7 +187,7 @@
                                                 <li><a href="@Url.Action("AddSP1User", "Admin")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view:
         CONFIRMATION VIEW CONTAINS AN OPTION TO PRINT A SHIPPING LABEL FOR CUSTOMER TO SHIP THEIR SAMPLES
                                                 *@
-                                                <li><a href="@Url.Action("AddSP1User", "Admin")">***New Order (add multiple tests)</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
+                                                <li><a href="@Url.Action("Create", "Assays")">***New Order (add multiple tests)</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
                                                 @*Each work order has a few extra options in it: 1. approve all necessary additional tests 2. Receive status Email updates of  (bool field in DB) 3. Request hard copy of results
         ONCE THE ORDER IS COMPLETE, THE WORK ORDER IS CREATED IN DB,
         THE STATUS OF THE W/O IS CHANGED TO "WAITING FOR SAMPLES"
