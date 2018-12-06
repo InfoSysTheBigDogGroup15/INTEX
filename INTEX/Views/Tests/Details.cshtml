@@ -1,0 +1,50 @@
+﻿@model INTEX.Models.Test
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Test</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.testName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.baseCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.baseCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hourlyWage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hourlyWage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numDays)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.testID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

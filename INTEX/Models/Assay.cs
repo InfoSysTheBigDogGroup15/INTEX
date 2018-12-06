@@ -17,7 +17,6 @@ namespace INTEX.Models
         public int assayID { get; set; }
 
         [DisplayName("Client ID")]
-        [Required]
         public int clientID { get; set; }
         public virtual Client Client { get; set; }
 
@@ -26,7 +25,7 @@ namespace INTEX.Models
         public virtual Compound Compound { get; set; }
 
         [DisplayName("Test ID")]
-        public int? testtID { get; set; }
+        public int? testID { get; set; }
         public virtual Test Test { get; set; }
 
         [DisplayName("Discount ID")]

@@ -1,0 +1,34 @@
+﻿@model INTEX.Models.Test_Tube
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Test_Tube</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Test.testName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test.testName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.concentration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.concentration)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.testTubeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

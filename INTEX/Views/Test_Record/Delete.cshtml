@@ -1,0 +1,72 @@
+﻿@model INTEX.Models.Test_Record
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Test_Record</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Assay.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assay.comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sample.sequenceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sample.sequenceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Test_Tube.concentration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test_Tube.concentration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numericResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numericResult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.judgementInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.judgementInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

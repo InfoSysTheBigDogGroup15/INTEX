@@ -1,0 +1,112 @@
+﻿@model INTEX.Models.Client
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Authorization.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Authorization.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientStreetAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientStreetAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientZip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientCardNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientCardNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientCardCvc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientCardCvc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

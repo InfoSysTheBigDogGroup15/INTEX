@@ -1,0 +1,87 @@
+﻿@model IEnumerable<INTEX.Models.Compound>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.employeeFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.compoundName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.compoundQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateArrived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateDue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appearance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actualWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maximumToleratedDose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirmationSentOutDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.employeeFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.compoundName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.compoundQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateArrived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateDue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appearance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actualWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maximumToleratedDose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.confirmationSentOutDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LTNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LTNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LTNumber })
+        </td>
+    </tr>
+}
+
+</table>

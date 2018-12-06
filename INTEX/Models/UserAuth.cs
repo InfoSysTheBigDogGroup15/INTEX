@@ -9,7 +9,7 @@ using System.Web;
 namespace INTEX.Models
 {
     [Table("Authorization")]
-    public class Authorization
+    public class UserAuth
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

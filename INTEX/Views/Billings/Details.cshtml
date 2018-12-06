@@ -1,0 +1,66 @@
+﻿@model INTEX.Models.Billing
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Billing</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.clientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.discountID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discountID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceQuote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceQuote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceBeforeDiscount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceBeforeDiscount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.finalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.finalPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.billingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

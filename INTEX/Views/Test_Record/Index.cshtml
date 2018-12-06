@@ -1,0 +1,63 @@
+﻿@model IEnumerable<INTEX.Models.Test_Record>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Assay.comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sample.sequenceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Test_Tube.concentration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numericResult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.judgementInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assay.comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sample.sequenceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Test_Tube.concentration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numericResult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.judgementInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.testRecordID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.testRecordID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.testRecordID })
+        </td>
+    </tr>
+}
+
+</table>

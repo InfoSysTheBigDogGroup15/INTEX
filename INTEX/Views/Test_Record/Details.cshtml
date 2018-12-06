@@ -1,0 +1,66 @@
+﻿@model INTEX.Models.Test_Record
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Test_Record</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Assay.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assay.comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sample.sequenceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sample.sequenceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Test_Tube.concentration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test_Tube.concentration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numericResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numericResult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.judgementInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.judgementInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.testRecordID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

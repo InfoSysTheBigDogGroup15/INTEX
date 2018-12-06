@@ -27,6 +27,6 @@ namespace INTEX.Models
 
         [DisplayName("Authorization ID")]
         public int? authorizationID { get; set; }
-        public virtual Authorization Authorization { get; set; }
+        public virtual UserAuth Authorization { get; set; }
     }
 }

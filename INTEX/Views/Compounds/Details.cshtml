@@ -1,0 +1,98 @@
+﻿@model INTEX.Models.Compound
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Compound</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.employeeFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.employeeFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.compoundName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compoundName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.compoundQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compoundQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateArrived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateArrived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.appearance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.appearance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actualWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actualWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.maximumToleratedDose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maximumToleratedDose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.confirmationSentOutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.confirmationSentOutDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LTNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
