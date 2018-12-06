@@ -91,7 +91,7 @@
                                             <a href="@Url.Action("Index", "Dashboards")"><i class="fa fa-tachometer"></i> My Dashboard </a>
                                         </li>
                                         <li>
-                                            <a><i class="fa fa-list-ol"></i> Seattle <span class="fa fa-chevron-down"></span></a>
+                                            <a><i class="fa fa-building"></i> Seattle <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("SP2Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">Alerts or Tasks</a></li>
                                                 <li><a href="@Url.Action("SP1Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">All Assays</a></li>
@@ -112,7 +112,7 @@
                                         @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
         {*@
                                         <li>
-                                            <a><i class="fa fa-list-ol"></i>Singapore<span class="fa fa-chevron-down"></span></a>
+                                            <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
                                                 <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
@@ -148,7 +148,7 @@
                                         @*@if (User.IsInRole("Admin"))
         {*@
                                         <li>
-                                            <a><i class="fa fa-dollar"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
+                                            <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">2 Catalogs</a></li>
                                                 <li><a href="@Url.Action("Index", "PayrollPlans")">Get quote</a></li>
@@ -176,7 +176,7 @@
                                         @*@if (User.IsInRole("Admin"))
         {*@
                                         <li>
-                                            <a><i class="fa fa-wrench"></i>Contact us<span class="fa fa-chevron-down"></span></a>
+                                            <a><i class="fa fa-compress"></i>Contact us<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("SendTextMessages", "Admin")">Chat</a></li>
                                                 <li><a href="@Url.Action("Index", "VideoApplications")">Contact</a></li>
@@ -184,7 +184,7 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a><i class="fa fa-wrench"></i>Sales<span class="fa fa-chevron-down"></span></a>
+                                            <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("SendTextMessages", "Admin")">Create client</a></li>
                                                 <li><a href="@Url.Action("Index", "VideoApplications")">Approve work order</a></li>
