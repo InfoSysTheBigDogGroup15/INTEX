@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brio Solar Energy App</title>
+    <title>Intex</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -93,9 +93,12 @@
                                         <li>
                                             <a><i class="fa fa-list-ol"></i> Seattle <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("SP2Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">SP2 Leaderboard</a></li>
-                                                <li><a href="@Url.Action("SP1Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">SP1 Leaderboard</a></li>
-                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">SP1 Customer Savings</a></li>
+                                                <li><a href="@Url.Action("SP2Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">Alerts or Tasks</a></li>
+                                                <li><a href="@Url.Action("SP1Leaderboard", "Leaderboards", new { UserID = User.Identity.Name })">All Assays</a></li>
+                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">All Orders</a></li>
+                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">Manangement</a></li>
+                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">Manangement(view sales report)</a></li>
+                                                <li><a href="@Url.Action("SP1_KW_Savings_Leaderboard", "Leaderboards", new { DateDecrement = 0 })">Create result summary report </a></li>
                                             </ul>
                                         </li>
                                        
@@ -105,66 +108,92 @@
                                 {*@
                                     
                                        
-                                        <ul class="nav side-menu">
-                                            @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
-                                            {*@
+                                    <ul class="nav side-menu">
+                                        @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
+        {*@
+                                        <li>
+                                            <a><i class="fa fa-list-ol"></i>Singapore<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
+                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
+                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>
                                                 <li>
-                                                    <a><i class="fa fa-list-ol"></i>Singapore<span class="fa fa-chevron-down"></span></a>
+                                                    <a>Schedule<span class="fa fa-chevron-down"></span></a>
                                                     <ul class="nav child_menu">
-                                                        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Updates</a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#sp2report-modal">Update work orders</a></li>
+                                                        <li class="sub_menu">
+
                                                         <li>
-                                                            <a>Schedule<span class="fa fa-chevron-down"></span></a>
-                                                            <ul class="nav child_menu">
-                                                                <li class="sub_menu">
-                                                                    <a href="@Url.Action("SP1RegionIndex", "Reports", null)">Schedule assays</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="@Url.Action("SP2ReportConfig", "Reports", null)">see schedule</a>
-                                                                </li>
-                                                            </ul>
+                                                            <a href="@Url.Action("SP2ReportConfig", "Reports", null)">Schedule Assays </a>
                                                         </li>
-                                                    </ul>
+                                                    </ul>     <a href="@Url.Action("SP1RegionIndex", "Reports", null)">Edit Schedule</a>
                                                 </li>
-                                            }
-                                            @*@if (User.IsInRole("Admin"))
-                                            {*@
-                                                <li>
-                                                    <a><i class="fa fa-dollar"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
-                                                    <ul class="nav child_menu">
-                                                        <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">Catalog</a></li>
-                                                        <li><a href="@Url.Action("Index", "PayrollPlans")">Get quote</a></li>
-                                                        <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">About Us</a></li>
-                                                    </ul>
-                                                </li>
-                                            }
-                                            @*@if (User.IsInRole("Admin") || User.IsInRole("Regional") || User.IsInRole("Manager"))
-                                            {*@
-                                                <li>
-                                                    <a><i class="fa fa-users">Active client</i><span class="fa fa-chevron-down"></span></a>
-                                                    <ul class="nav child_menu">
-                                                        <li><a href="@Url.Action("Index", "HR")">Current clients orders</a></li>
-                                                        @*@if (User.IsInRole("Admin"))
-                                                        {*@
-                                                            <li><a href="@Url.Action("Index", "Users")">Updates</a></li>
-                                                            @*}*@
-                                                        <li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>
-                                                        <li><a href="@Url.Action("AddSP1User", "Admin")">New order</a></li>
-                                                    </ul>
-                                                </li>
-                                            }
-                                            @*@if (User.IsInRole("Admin"))
-                                            {*@
-                                                <li>
-                                                    <a><i class="fa fa-wrench"></i>Contact us<span class="fa fa-chevron-down"></span></a>
-                                                    <ul class="nav child_menu">
-                                                        <li><a href="@Url.Action("SendTextMessages", "Admin")">Chat</a></li>
-                                                        <li><a href="@Url.Action("Index", "VideoApplications")">Contact</a></li>
-                                                        <li><a href="@Url.Action("Index", "Announcements")">Frequently asked questions</a></li>
-                                                    </ul>
-                                                </li>
-                                            @*}*@
-                                        </ul>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-dollar"></i>Billing<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">Work Orders</a></li>
+                                                <li><a href="@Url.Action("Index", "PayrollPlans")">Record special requests(client) on work order</a></li>
+                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">Create discount request</a></li>
+                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">Create discount request</a></li>
+                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">Invoices</a></li>
+                                            </ul>
+                                        </li>
+
+
+
+
+
+                                        @*@if (User.IsInRole("Admin"))
+        {*@
+                                        <li>
+                                            <a><i class="fa fa-dollar"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="@Url.Action("PayPeriodIndex", "PayrollPlans")">2 Catalogs</a></li>
+                                                <li><a href="@Url.Action("Index", "PayrollPlans")">Get quote</a></li>
+                                                <li><a href="@Url.Action("AssignPayrollPlanToReps", "PayrollPlans")">About Us</a></li>
+                                            </ul>
+                                        </li>
+
+                                        @*@if (User.IsInRole("Admin") || User.IsInRole("Regional") || User.IsInRole("Manager"))
+        {*@
+                                        <li>
+                                            <a><i class="fa fa-users">Active client</i><span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="@Url.Action("Index", "HR")">All clients orders</a></li>
+                                                @*@if (User.IsInRole("Admin"))
+                {*@
+                                                <li><a href="@Url.Action("Index", "Users")">1 orders tests </a></li>
+                                                <li><a href="@Url.Action("Index", "Users")">Active tests </a></li>
+                                                @*}*@
+
+                                                <li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>
+                                                <li><a href="@Url.Action("AddSP1User", "Admin")">New order (request quote)</a></li>
+                                            </ul>
+                                        </li>
+
+                                        @*@if (User.IsInRole("Admin"))
+        {*@
+                                        <li>
+                                            <a><i class="fa fa-wrench"></i>Contact us<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="@Url.Action("SendTextMessages", "Admin")">Chat</a></li>
+                                                <li><a href="@Url.Action("Index", "VideoApplications")">Contact</a></li>
+                                                <li><a href="@Url.Action("Index", "Announcements")">Frequently asked questions</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-wrench"></i>Sales<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="@Url.Action("SendTextMessages", "Admin")">Create client</a></li>
+                                                <li><a href="@Url.Action("Index", "VideoApplications")">Approve work order</a></li>
+                                                <li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
+                                                <li><a href="@Url.Action("Index", "Announcements")">Alerts</a></li>
+                                            </ul>
+                                        </li>
+                                        @*}*@
+                                    </ul>
                                     </div>
                                 @*}*@
 
