@@ -12,11 +12,10 @@
     <div class="col-md-4">
         <select id="role" class="form-control">
             <option value="">Select Role</option>
-            <option value="Admin">Admin</option>
+            <option value="Admin">Admin</option> 
             <option value="Client">Client</option>
             <option value="LabTech">Lab Tech</option>
             <option value="Sales">Sales</option>
-
         </select>
     </div>
 
@@ -116,11 +115,11 @@
         </div>
         <div class="form-group col-md-12">
             <label for="inputCard">Card Number</label>
-            @Html.TextBox("Card", null, new { @class = "form-control", id = "inputCard", placeholder = "xxxx-xxxx-xxxx-xxxx" })
+            @Html.TextBox("Card", null, new { @class = "form-control", id = "inputCard", placeholder = "16 digits" })
         </div>
         <div class="form-group col-md-3">
             <label for="inputCvc">Cvc Number</label>
-            @Html.TextBox("Cvc", null, new { @class = "form-control", id = "inputCvc", placeholder = "xxx" })
+            @Html.TextBox("Cvc", null, new { @class = "form-control", id = "inputCvc", placeholder = "3 digits" })
         </div>
         <div class="col-md-12 text-right">
             <br />
