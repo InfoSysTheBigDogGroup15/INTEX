@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "CreateUser";
+    ViewBag.Title = null;
 }
 <div class="row text-center">
     <h2>Create User</h2>
@@ -12,21 +12,230 @@
     <div class="col-md-4">
         <select id="role" class="form-control">
             <option value="">Select Role</option>
-            <option value="LabTech">Lab Tech</option>
+            <option value="Admin">Admin</option>
             <option value="Client">Client</option>
+            <option value="LabTech">Lab Tech</option>
             <option value="Sales">Sales</option>
-            <option value="regionalManager">Regional Manager</option>
-            <option value="managerSingapore">Singapore Manager</option>
-            <option value="Billings">Billings</option>
-
-
-
 
         </select>
     </div>
 
 </div>
+<br/>
+<br/>
+<div class="row userForm" id="Admin">
+    @using (Html.BeginForm("CreateEmployee", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("Role", "Admin")
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputFirstName">First Name</label>
+                @Html.TextBox("FirstName", null, new { @class = "form-control", id = "inputFirstName", placeholder = "First Name" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputLastName">Last Name</label>
+                @Html.TextBox("LastName", null, new { @class = "form-control", id = "inputLastName", placeholder = "Last Name" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsername">Username</label>
+                @Html.TextBox("Username", null, new { @class = "form-control", id = "inputUsername", placeholder = "Username" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                @Html.TextBox("Password", null, new { @class = "form-control", type = "password", id = "inputPassword", placeholder = "Password" })
+            </div>
+        </div>
+        <div clss="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputTitle">Title</label>
+                @Html.TextBox("Title", null, new { @class = "form-control", id = "inputTitle", placeholder = "Title" })
+            </div>
+        </div>
+        <div class="col-md-12 text-right">
+            <br />
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+    }
+</div>
+
+<div class="row userForm" id="Client">
+    @using (Html.BeginForm("CreateClient", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("Role", "Client")
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputFirstName">First Name</label>
+                @Html.TextBox("FirstName", null, new { @class = "form-control", id = "inputFirstName", placeholder = "First Name" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputLastName">Last Name</label>
+                @Html.TextBox("LastName", null, new { @class = "form-control", id = "inputLastName", placeholder = "Last Name" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsername">Username</label>
+                @Html.TextBox("Username", null, new { @class = "form-control", id = "inputUsername", placeholder = "Username" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                @Html.TextBox("Password", null, new { @class = "form-control", type = "password", id = "inputPassword", placeholder = "Password" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail">Email</label>
+                @Html.TextBox("Email", null, new { @class = "form-control", id = "inputEmail", placeholder = "Email" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPhone">Phone</label>
+                @Html.TextBox("Phone", null, new { @class = "form-control", id = "inputPhone", placeholder = "123-123-1234" })
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="inputAddress">Address</label>
+            @Html.TextBox("Address", null, new { @class = "form-control", id = "inputAddress", placeholder = "1234 Main St" })
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                @Html.TextBox("City", null, new { @class = "form-control", id = "inputCity", placeholder = "City" })
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                @Html.TextBox("State", null, new { @class = "form-control", id = "inputState", placeholder = "State" })
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                @Html.TextBox("Zip", null, new { @class = "form-control", id = "inputZip", placeholder = "Zip" })
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="inputCard">Card Number</label>
+            @Html.TextBox("Card", null, new { @class = "form-control", id = "inputCard", placeholder = "xxxx-xxxx-xxxx-xxxx" })
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCvc">Cvc Number</label>
+            @Html.TextBox("Cvc", null, new { @class = "form-control", id = "inputCvc", placeholder = "xxx" })
+        </div>
+        <div class="col-md-12 text-right">
+            <br />
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+    }
+</div>
+
 <div class="row userForm" id="LabTech">
+    @using (Html.BeginForm("CreateEmployee", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("Role", "LabTech")
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputFirstName">First Name</label>
+                @Html.TextBox("FirstName", null, new { @class = "form-control", id = "inputFirstName", placeholder = "First Name" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputLastName">Last Name</label>
+                @Html.TextBox("LastName", null, new { @class = "form-control", id = "inputLastName", placeholder = "Last Name" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsername">Username</label>
+                @Html.TextBox("Username", null, new { @class = "form-control", id = "inputUsername", placeholder = "Username" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                @Html.TextBox("Password", null, new { @class = "form-control", type = "password", id = "inputPassword", placeholder = "Password" })
+            </div>
+        </div>
+        <div clss="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputTitle">Title</label>
+                @Html.TextBox("Title", null, new { @class = "form-control", id = "inputTitle", placeholder = "Title" })
+            </div>
+        </div>
+        <div class="col-md-12 text-right">
+            <br />
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+    }
+</div>
+
+<div class="row userForm" id="Sales">
+    @using (Html.BeginForm("CreateEmployee", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("Role", "Sales")
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputFirstName">First Name</label>
+                @Html.TextBox("FirstName", null, new { @class = "form-control", id = "inputFirstName", placeholder = "First Name" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputLastName">Last Name</label>
+                @Html.TextBox("LastName", null, new { @class = "form-control", id = "inputLastName", placeholder = "Last Name" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsername">Username</label>
+                @Html.TextBox("Username", null, new { @class = "form-control", id = "inputUsername", placeholder = "Username" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                @Html.TextBox("Password", null, new { @class = "form-control", type = "password", id = "inputPassword", placeholder = "Password" })
+            </div>
+        </div>
+        <div clss="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputTitle">Title</label>
+                @Html.TextBox("Title", null, new { @class = "form-control", id = "inputTitle", placeholder = "Title" })
+            </div>
+        </div>
+        <div class="col-md-12 text-right">
+            <br />
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+    }
+</div>
+
+@*<div class="row userForm" id="Client">
+    @using (Html.BeginForm("CreateClient", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("Role", "Client")
+        <div class="text-left">First Name:</div>
+        @Html.TextBox("FirstName", null, new { @class = "form-control", placeholder = "City" })
+        <br />
+        <div class="text-left">Last Name:</div>
+        @Html.TextBox("LastName", null, new { @class = "form-control", placeholder = "City" })
+        <br />
+        <div class="text-left">Street Address:</div>
+        @Html.TextBox("Address", null, new { @class = "form-control", placeholder = "City" })
+        <br />
+        <div class="text-left">City:</div>
+        @Html.TextBox("City", null, new { @class = "form-control", placeholder = "City" })
+        <br />
+        < a href = "~/Views/Billings/Edit.cshtml" > ~/ Views / Billings / Edit.cshtml </ a >
+        <div class="text-left">State:</div>
+        @Html.TextBox("State", null, new { @class = "form-control", placeholder = "State" })
+        <br />
+        <div class="text-left">Zip:</div>
+        @Html.TextBox("div", null, new { @class = "form-control", placeholder = "Zip" })
+        <div class="col-md-12 text-right">
+            <br />
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+
+    }
+</div>*@
+@*<div class="row userForm" id="LabTech">
     @using (Html.BeginForm("CreateLabTech", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -47,12 +256,12 @@
         </div>
 
     }
-</div>
-<div class="row userForm" id="Client">
+</div>*@
+@*<div class="row userForm" id="Sales">
     @using (Html.BeginForm("CreateClient", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        @Html.Hidden("Role", "Client")
+        @Html.Hidden("Role", "Sales")
         <div class="text-left">First Name:</div>
         @Html.TextBox("FirstName", null, new { @class = "form-control" })
         <br />
@@ -70,7 +279,7 @@
         </div>
 
     }
-</div>
+</div>*@
 
 @section Scripts{
 
