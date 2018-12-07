@@ -254,7 +254,7 @@ namespace INTEX.Controllers
 
             return View(clientAssayList);
         }
-        public ActionResult WaitingCompounds()
+        public ActionResult WaitingCompounds(int? AuthIDs)
         {
             List<Assay> assayList = new List<Assay>();
             assayList = db.Assays.ToList();
@@ -270,7 +270,7 @@ namespace INTEX.Controllers
             Client found = new Client();
             foreach (Client c in findUser)
             {
-                if (c.authorizationID == int.Parse(User.Identity.Name))
+                if (c.authorizationID == AuthIDs)
                 {
                     found = c;
                 }
@@ -291,7 +291,7 @@ namespace INTEX.Controllers
             
             return View(clientAssayList);
         }
-        public ActionResult WaitingToBeScheduled()
+        public ActionResult WaitingToBeScheduled(int? AuthIDs)
         {
             List<Assay> assayList = new List<Assay>();
             assayList = db.Assays.ToList();
@@ -307,7 +307,7 @@ namespace INTEX.Controllers
             Client found = new Client();
             foreach (Client c in findUser)
             {
-                if (c.authorizationID == int.Parse(User.Identity.Name))
+                if (c.authorizationID == AuthIDs)
                 {
                     found = c;
                 }
