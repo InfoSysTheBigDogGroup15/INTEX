@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "CreateUser";
+}
+<div class="row text-center">
+    <h2>Create User</h2>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-1 col-md-offset-3 text-right">
+        <b>Role</b>
+    </div>
+    <div class="col-md-4">
+        <select id="role" class="form-control">
+            <option value="">Select Role</option>
+            <option value="LabTech">Lab Tech</option>
+            <option value="Client">CLient</option>
+            <option value="OfficeStaff">Office Staff</option>
+
+        </select>
+    </div>
+
+</div>
+<div class="row userForm" id="LabTech">
+    @using (Html.BeginForm("CreateLabTech", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("Role", "LabTech")
+        <div class="text-left">First Name:</div>
+        @Html.TextBox("FirstName", null, new { @class = "form-control" })
+        <br />
+        <div class="text-left">Last Name:</div>
+        @Html.TextBox("LastName", null, new { @class = "form-control" })
+        <br />
+        <div class="text-left">Username:</div>
+        @Html.TextBox("UserName", null, new { @class = "form-control" })<br />
+        <div class="text-left">Password:</div>
+        @Html.TextBox("Password", null, new { @class = "form-control" })
+        <div class="col-md-12 text-right">
+            <br />
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+
+    }
+</div>
+<div class="row userForm" id="Client">
+    @using (Html.BeginForm("CreateClient", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("Role", "Client")
+        <div class="text-left">First Name:</div>
+        @Html.TextBox("FirstName", null, new { @class = "form-control" })
+        <br />
+        <div class="text-left">Last Name:</div>
+        @Html.TextBox("LastName", null, new { @class = "form-control" })
+        <br />
+        <div class="text-left">Street Address:</div>
+        @Html.TextBox("Address", null, new { @class = "form-control" })
+        <br />
+        <div class="text-left">City:</div>
+        @Html.TextBox("City", null, new { @class = "form-control" })
+        <div class="col-md-12 text-right">
+            <br />
+            <input class="btn btn-success" type="submit" value="Submit" />
+        </div>
+
+    }
+</div>
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            $(".userForm").hide();
+        });
+        $("#role").on("change", function () {
+            $(".userForm").hide();
+            let formName = $("#role").val();
+            $("#" + formName).show();
+        });
+    </script>
+
+}

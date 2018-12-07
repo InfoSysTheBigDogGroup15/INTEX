@@ -48,5 +48,33 @@ namespace INTEX.Controllers
         {
             return View(db.Samples.ToList());
         }
+        public ActionResult CreateUser()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateLabtech(FormCollection Form)
+        {
+            string role = Form["Role"];
+            string fname = Form["FirstName"];
+            string lname = Form["LastName"];
+            string username = Form["UserName"];
+            string password = Form["Password"];
+            UserAuth newUser = new UserAuth();
+            Employee newEmployee = new Employee();
+            newUser.password = password;
+            newUser.username = username;
+            newUser.role = role;
+            newEmployee.employeeFirstName = fname;
+            newEmployee.employeeLastName = lname;
+            newEmployee.title = role;
+            db.UserAuths.Add(newUser);
+            db.SaveChanges();
+            newEmployee.authorizationID = newUser.authorizationID;
+            db.Employees.Add(newEmployee);
+            db.SaveChanges();
+            return View();
+        }
     }
 }

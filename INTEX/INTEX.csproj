@@ -4736,6 +4736,8 @@
     <Content Include="Views\Assays\somehting.cshtml" />
     <Content Include="Views\Assays\QuotesRecieved.cshtml" />
     <Content Include="Views\Assays\Client2Finalize.cshtml" />
+    <Content Include="Views\Home\CreateUser.cshtml" />
+    <Content Include="Views\Home\CreateLabtech.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

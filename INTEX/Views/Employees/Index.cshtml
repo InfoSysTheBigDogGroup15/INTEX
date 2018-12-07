@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.title)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserAuth.authorizationID)
+        </th>
         <th></th>
     </tr>
 
@@ -41,9 +44,12 @@
             @Html.DisplayFor(modelItem => item.title)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.employeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.employeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.employeeID })
+            @Html.DisplayFor(modelItem => item.UserAuth.authorizationID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.employeeID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.employeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.employeeID })
         </td>
     </tr>
 }
