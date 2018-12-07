@@ -95,21 +95,22 @@ namespace INTEX.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "assayID,clientID,LTNumber,testID,discountID,comments,statusID,allowExtraTest")] Assay assay)
         {
+            assay.statusID = 1;
             if (ModelState.IsValid)
             {
                 db.Entry(assay).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ClientSuccessfulOrder", "Clients");
             }
             ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName", assay.clientID);
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
             ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
-            return View(assay);
+            return RedirectToAction("ClientSuccessfulOrder", "Clients");
         }
 
-        // GET: Assays/Delete/5
-        public ActionResult Delete(int? id)
+            // GET: Assays/Delete/5
+            public ActionResult Delete(int? id)
         {
             if (id == null)
             {
