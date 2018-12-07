@@ -99,6 +99,28 @@ namespace INTEX.Controllers
         }
         public ActionResult CreateUser()
         {
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
             return View();
         }
         [HttpPost]
@@ -124,6 +146,28 @@ namespace INTEX.Controllers
             newEmployee.authorizationID = newUser.authorizationID;
             db.Employees.Add(newEmployee);
             db.SaveChanges();
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
             return RedirectToAction("Index", "Employees");
         }
 
@@ -163,6 +207,29 @@ namespace INTEX.Controllers
             nc.authorizationID = newUser.authorizationID;
             db.Clients.Add(nc);
             db.SaveChanges();
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
+            return View();
             return RedirectToAction("Index", "Clients");
         }
         //public ActionResult CreateClientUser(FormColle)

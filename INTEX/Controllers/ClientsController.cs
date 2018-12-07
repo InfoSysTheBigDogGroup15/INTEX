@@ -131,12 +131,12 @@ namespace INTEX.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult displayCustomerOrders(int? clientIDs)
+        public ActionResult displayCustomerOrders(int? AuthIDs)
         {   List<Client> client = db.Clients.ToList();
             int clientidd=0;
             foreach (Client c in client)
             {
-                if (c.authorizationID == int.Parse(User.Identity.Name))
+                if (c.authorizationID == AuthIDs)
                 {
                     clientidd = c.clientID;
                 }

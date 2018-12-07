@@ -44,6 +44,29 @@ namespace INTEX.Controllers
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName");
             ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description");
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription");
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
+            
             return View();
         }
 
@@ -66,7 +89,7 @@ namespace INTEX.Controllers
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
             ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
-            return View("somehting");
+            return RedirectToAction("Index","Home");
         }
 
         // GET: Assays/Edit/5
@@ -168,7 +191,7 @@ namespace INTEX.Controllers
             int clientidd = 0;
             foreach (Client c in client)
             {
-                if (c.authorizationID == int.Parse(User.Identity.Name))
+                if (c.authorizationID == ClientIDss)
                 {
                     clientidd = c.clientID;
                 }
@@ -183,6 +206,29 @@ namespace INTEX.Controllers
                     clientAssayList.Add(ass);
                 }
             }
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
+            
 
             return View(clientAssayList);
         }
@@ -198,6 +244,29 @@ namespace INTEX.Controllers
                     clientAssayList.Add(ass);
                 }
             }
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
+            
             return View(clientAssayList);
         }
         public ActionResult WaitingToBeScheduled()
@@ -212,6 +281,28 @@ namespace INTEX.Controllers
                     clientAssayList.Add(ass);
                 }
             }
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
             return View(clientAssayList);
 
         }
