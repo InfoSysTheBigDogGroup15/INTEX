@@ -216,6 +216,7 @@
     <Content Include="Content\ios_how_to.png" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\loading.gif" />
+    <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\placeholder-profile-pic.png" />
     <Content Include="Content\pop-up-notifications.css" />
     <Content Include="Content\production\calendar.html" />
@@ -3692,6 +3693,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\lab-report.jpg" />
+    <Content Include="Images\NWDL-Logo4.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
@@ -4753,6 +4756,7 @@
     <Content Include="Views\Assays\ClientOrdersScheduled.cshtml" />
     <Content Include="Views\Assays\ClientFailedTests.cshtml" />
     <Content Include="Views\Assays\ClientsCompletedOrders.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
