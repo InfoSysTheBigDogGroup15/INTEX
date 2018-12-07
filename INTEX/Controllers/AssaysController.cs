@@ -95,18 +95,18 @@ namespace INTEX.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "assayID,clientID,LTNumber,testID,discountID,comments,statusID,allowExtraTest")] Assay assay)
         {
-            assay.statusID = 1;
+            
             if (ModelState.IsValid)
             {
                 db.Entry(assay).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("ClientSuccessfulOrder", "Clients");
+                return View("Edited1");
             }
             ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName", assay.clientID);
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
             ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
-            return RedirectToAction("ClientSuccessfulOrder", "Clients");
+            return View("Edited1");
         }
 
         // GET: Assays/Delete/5
@@ -193,7 +193,7 @@ namespace INTEX.Controllers
             List<Assay> clientAssayList = new List<Assay>();
             foreach (Assay ass in assayList)
             {
-                if (ass.statusID == 4)
+                if (ass.statusID == 3)
                 {
                     clientAssayList.Add(ass);
                 }
@@ -207,7 +207,7 @@ namespace INTEX.Controllers
             List<Assay> clientAssayList = new List<Assay>();
             foreach (Assay ass in assayList)
             {
-                if (ass.statusID == 5)
+                if (ass.statusID == 4)
                 {
                     clientAssayList.Add(ass);
                 }
@@ -216,7 +216,22 @@ namespace INTEX.Controllers
 
         }
 
-        public ActionResult TestsScheduled()
+       
+        public ActionResult Scheduled()
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 5)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+            return View(clientAssayList);
+        }
+        public ActionResult FailedTests()
         {
             List<Assay> assayList = new List<Assay>();
             assayList = db.Assays.ToList();
@@ -229,6 +244,147 @@ namespace INTEX.Controllers
                 }
             }
             return View(clientAssayList);
+        }
+        public ActionResult SuccessfulOrders()
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 7)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+            return View(clientAssayList);
+        }
+
+        public ActionResult ClientOrdersWaitingCompound(int? ClientIDss)
+        {
+            List<Client> client = db.Clients.ToList();
+            int clientidd = 0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    clientidd = c.clientID;
+                }
+            }
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 3 && ass.clientID == clientidd)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+
+            return View(clientAssayList);
+        }
+        public ActionResult ClientOrdersWaitingSchedule(int? ClientIDss)
+        {
+            List<Client> client = db.Clients.ToList();
+            int clientidd = 0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    clientidd = c.clientID;
+                }
+            }
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 4 && ass.clientID == clientidd)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+
+            return View(clientAssayList);
+        }
+        public ActionResult ClientOrdersScheduled(int? ClientIDss)
+        {
+            List<Client> client = db.Clients.ToList();
+            int clientidd = 0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    clientidd = c.clientID;
+                }
+            }
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 5 && ass.clientID == clientidd)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+
+            return View(clientAssayList);
+        }
+        public ActionResult ClientFailedTests(int? ClientIDss)
+        {
+            List<Client> client = db.Clients.ToList();
+            int clientidd = 0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    clientidd = c.clientID;
+                }
+            }
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 6 && ass.clientID == clientidd)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+
+            return View(clientAssayList);
+        }
+        public ActionResult ClientsCompletedOrders(int? ClientIDss)
+        {
+            List<Client> client = db.Clients.ToList();
+            int clientidd = 0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    clientidd = c.clientID;
+                }
+            }
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 7 && ass.clientID == clientidd)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+
+            return View(clientAssayList);
+        }
+
+
+        public ActionResult Edited1()
+        {
+            return View();
         }
     }
 }

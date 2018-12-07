@@ -1,0 +1,69 @@
+﻿@model IEnumerable<INTEX.Models.Assay>
+
+@{
+    ViewBag.Title = "Scheduled";
+}
+
+<h2>Scheduled</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.clientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Compound.compoundName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status.statusDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Test.testName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allowExtraTest)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.clientID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Compound.compoundName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status.statusDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Test.testName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.allowExtraTest)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.assayID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.assayID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.assayID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -4744,6 +4744,15 @@
     <Content Include="Views\Clients\ClientCreateAssay.cshtml" />
     <Content Include="Views\Clients\ClientCreated.cshtml" />
     <Content Include="Views\Assays\TestsScheduled.cshtml" />
+    <Content Include="Views\Assays\Edited1.cshtml" />
+    <Content Include="Views\Assays\Scheduled.cshtml" />
+    <Content Include="Views\Assays\FailedTests.cshtml" />
+    <Content Include="Views\Assays\SuccessfulOrders.cshtml" />
+    <Content Include="Views\Assays\ClientOrdersWaitingCompound.cshtml" />
+    <Content Include="Views\Assays\ClientOrdersWaitingSchedule.cshtml" />
+    <Content Include="Views\Assays\ClientOrdersScheduled.cshtml" />
+    <Content Include="Views\Assays\ClientFailedTests.cshtml" />
+    <Content Include="Views\Assays\ClientsCompletedOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

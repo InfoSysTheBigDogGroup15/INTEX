@@ -76,7 +76,7 @@ namespace INTEX.Controllers
                 return HttpNotFound();
             }
             ViewBag.authorizationID = new SelectList(db.UserAuths, "authorizationID", "username", client.authorizationID);
-            return View(client);
+            return RedirectToAction("Edit1", "Assays");
         }
 
         // POST: Clients/Edit/5
