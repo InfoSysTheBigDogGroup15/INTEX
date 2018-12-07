@@ -104,6 +104,32 @@ namespace INTEX.Controllers
             {
                 db.Assays.Add(assay);
                 db.SaveChanges();
+
+                List<Client> findUser1 = db.Clients.ToList();
+                Client found1 = new Client();
+                foreach (Client c in findUser1)
+                {
+                    if (c.authorizationID == int.Parse(User.Identity.Name))
+                    {
+                        found1 = c;
+                    }
+                }
+                List<UserAuth> findUserA1 = db.UserAuths.ToList();
+                UserAuth foundA1 = new UserAuth();
+                foreach (UserAuth c in findUserA1)
+                {
+                    if (c.authorizationID == int.Parse(User.Identity.Name))
+                    {
+                        foundA1 = c;
+                    }
+                }
+                //current = found;
+               ViewBag.User = foundA1.username;
+            ViewBag.UserF = found1.clientFirstName;
+            ViewBag.UserL = found1.clientLastName;
+                assay.clientID = found1.clientID;
+                db.Assays.Add(assay);
+                db.SaveChanges();
                 return View("somehting");
             }
 
@@ -111,7 +137,30 @@ namespace INTEX.Controllers
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
             ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
-            return RedirectToAction("Index","Home");
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
+
+            return View("somehting");
         }
 
         // GET: Assays/Edit/5
@@ -190,6 +239,29 @@ namespace INTEX.Controllers
         }
         public ActionResult somehting()
         {
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
+
             return View();
         }
         public ActionResult QuotesRecieved()
@@ -491,6 +563,30 @@ namespace INTEX.Controllers
                 }
             }
 
+            return View(clientAssayList);
+        }
+
+        public ActionResult displayCustomerOrders(int? AuthIDs)
+        {
+            List<Client> client = db.Clients.ToList();
+            int clientidd = 0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == AuthIDs)
+                {
+                    clientidd = c.clientID;
+                }
+            }
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.clientID == clientidd)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
             return View(clientAssayList);
         }
 

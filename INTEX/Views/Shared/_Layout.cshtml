@@ -148,7 +148,7 @@
                                             <li>
                                                 <a><i class="fa fa-tachometer"></i>My Dashboard <span class="fa fa-exclamation-triangle alerts" aria-hidden="true" style="color: orange;"></span><span class="fa fa-chevron-down"></span></a>
                                                 <ul class="nav child_menu">
-                                                    <li><a href="@Url.Action("displayCustomerOrders", "Clients", new { AuthIDs = int.Parse(User.Identity.Name) })">My Orders</a></li>
+                                                    <li><a href="@Url.Action("displayCustomerOrders", "Assays", new { AuthIDs = int.Parse(User.Identity.Name) })">My Orders</a></li>
                                                     <li><a href="@Url.Action("Create", "Assays",new { AuthIDs = int.Parse(User.Identity.Name) })">Request Quote</a></li>
                                                     <li><a href="@Url.Action("displayCustomerOrders", new { AuthIDs = int.Parse(User.Identity.Name) })">Orders Waiting to be quoted in Singapore</a></li>
                                                     <li><a href="@Url.Action("Client2Finalize", "Assays", int.Parse(User.Identity.Name))">Priced Quotes</a></li>

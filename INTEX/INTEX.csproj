@@ -4757,6 +4757,7 @@
     <Content Include="Views\Assays\ClientFailedTests.cshtml" />
     <Content Include="Views\Assays\ClientsCompletedOrders.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Assays\displayCustomerOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

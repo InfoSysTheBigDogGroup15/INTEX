@@ -98,7 +98,7 @@ namespace INTEX.Controllers
                 return HttpNotFound();
             }
             ViewBag.authorizationID = new SelectList(db.UserAuths, "authorizationID", "username", client.authorizationID);
-            return RedirectToAction("Edit1", "Assays");
+            return RedirectToAction("Edit", "Assays");
         }
 
         // POST: Clients/Edit/5
@@ -153,28 +153,28 @@ namespace INTEX.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult displayCustomerOrders(int? AuthIDs)
-        {   List<Client> client = db.Clients.ToList();
-            int clientidd=0;
-            foreach (Client c in client)
-            {
-                if (c.authorizationID == AuthIDs)
-                {
-                    clientidd = c.clientID;
-                }
-            }
-            List<Assay> assayList = new List<Assay>();
-            assayList = db.Assays.ToList();
-            List<Assay> clientAssayList = new List<Assay>();
-            foreach (Assay ass in assayList)
-            {
-                if (ass.clientID == clientidd)
-                {
-                    clientAssayList.Add(ass);
-                }
-            }
-            return View(clientAssayList);
-        }
+        //public ActionResult displayCustomerOrders(int? AuthIDs)
+        //{   List<Client> client = db.Clients.ToList();
+        //    int clientidd=0;
+        //    foreach (Client c in client)
+        //    {
+        //        if (c.authorizationID == AuthIDs)
+        //        {
+        //            clientidd = c.clientID;
+        //        }
+        //    }
+        //    List<Assay> assayList = new List<Assay>();
+        //    assayList = db.Assays.ToList();
+        //    List<Assay> clientAssayList = new List<Assay>();
+        //    foreach (Assay ass in assayList)
+        //    {
+        //        if (ass.clientID == clientidd)
+        //        {
+        //            clientAssayList.Add(ass);
+        //        }
+        //    }
+        //    return View(clientAssayList);
+        //}
         // GET: Assays/Create
         public ActionResult ClientCreateAssay()
         {
