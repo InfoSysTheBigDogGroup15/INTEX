@@ -50,31 +50,15 @@ namespace INTEX.App_Start
         public override string[] GetRolesForUser(string username)
         {
             string[] role = new string[] { };
-            ////User s = db.Users.Find(Int32.Parse(username));
+            UserAuth s = db.UserAuths.Find(Int32.Parse(username));
 
-            //if (s != null)
-            //{
-            //    if (s.Role == "Admin")
-            //    {
-            //        return new string[] { "Admin" };
-            //    }
-            //    else if (s.Role == "Regional")
-            //    {
-            //        return new string[] { "Regional" };
-            //    }
-            //    else if (s.Role == "Manager")
-            //    {
-            //        return new string[] { "Manager" };
-            //    }
-            //    else if (s.Role == "SP2/SP3")
-            //    {
-            //        return new string[] { "SP2/SP3" };
-            //    }
-            //    else if (s.Role == "SP1")
-            //    {
-            //        return new string[] { "SP1" };
-            //    }
-            //}
+            if (s != null)
+            {
+                if (s.role == "LabTech")
+                {
+                    return new string[] { "LabTech" };
+                }
+            }
             return new string[] { "" };
         }
 

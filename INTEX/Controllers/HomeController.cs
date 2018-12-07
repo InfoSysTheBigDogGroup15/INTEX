@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using INTEX.Models;
 using INTEX.DAL;
+using System.Web.Security;
 
 namespace INTEX.Controllers
 {
@@ -35,13 +36,38 @@ namespace INTEX.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(FormCollection form)
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
         {
             string username = form["Username"];
             string password = form["Password"];
             //linear search
             //reroute find role send to dashboard
+            List<UserAuth> auths = db.UserAuths.ToList();
+
+            foreach (UserAuth auth in auths)
+            {
+                if (auth.username == username && auth.password == password)
+                {
+                    FormsAuthentication.SetAuthCookie(auth.authorizationID.ToString(), rememberMe);
+                    return RedirectToAction("Index","Assays");
+                }
+
+                
+            }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            if (User.Identity.IsAuthenticated == true)
+            {
+                FormsAuthentication.SignOut();
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
         }
 
         public ActionResult AllTest()

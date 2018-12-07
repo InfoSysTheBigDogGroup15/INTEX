@@ -115,38 +115,41 @@
                                        
                                     <ul class="nav side-menu">
                                         @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
-        {*@
-                                        <li>
-                                            <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "Assays")">***Requests Dashboards</a></li>@*OUR PROPOSED SOLUTION INCLUDES USING RFID IN THE SINGAPORE LAB TO AUTOMATICALLY UPDATE STATUS OF TESTS AND WORK ORDERS
-        ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
-                                                <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li> @* add LT number and sequence number (THIS IS PERFORMED BY THE RFID TAGS/READER, but we need to fake it for the demo. This is the same step that the tests are compelted.
-        On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
-                                                <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Quotes to be approved</a></li>
-                                                <li><a href="@Url.Action("Index", "Home")">***Work Orders waiting for compounds</a></li>
-                                                <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
-                                                <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
+        {*@                             @if (User.IsInRole("LabTech"))
+                                        {
+                                            <li>
+                                                <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
+                                                <ul class="nav child_menu">
+                                                    <li><a href="@Url.Action("Index", "Assays")">***Requests Dashboards</a></li>@*OUR PROPOSED SOLUTION INCLUDES USING RFID IN THE SINGAPORE LAB TO AUTOMATICALLY UPDATE STATUS OF TESTS AND WORK ORDERS
+                ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
+                                                    <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li> @* add LT number and sequence number (THIS IS PERFORMED BY THE RFID TAGS/READER, but we need to fake it for the demo. This is the same step that the tests are compelted.
+                On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
+                                                    <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Quotes to be approved</a></li>
+                                                    <li><a href="@Url.Action("Index", "Home")">***Work Orders waiting for compounds</a></li>
+                                                    <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
+                                                    <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
 
-                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>
-                                                @*<li>
-            <a>Schedule<span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li class="sub_menu">
+                                                    <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
+                                                    <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
+                                                    <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>
+                                                    @*<li>
+                    <a>Schedule<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="sub_menu">
 
-                <li>
-                    <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
-                </li>
-            </ul>
-        </li>*@
+                        <li>
+                            <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
+                        </li>
+                    </ul>
+                </li>*@
 
-                                            </ul>
-                                        </li>
+                                                </ul>
+                                            </li>
+                                        }
+                                        
                                         @*<li>
                                             <a><i class="fa fa-dollar"></i>Billing<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
@@ -275,7 +278,7 @@
                                                         <div class="col-md-10 col-md-offset-1">
                                                             <label></label>
                                                             <div class="btn-group">
-                                                                @*@using (Html.BeginForm("Login", "Home", FormMethod.Get))
+                                                                @using (Html.BeginForm("Login", "Home", FormMethod.Get))
                                                                 {
                                                                     <div class="row text-center">
                                                                         <div class="col-md-6 col-md-offset-3">
@@ -289,7 +292,7 @@
 
                                                                         </div>
                                                                     </div>
-                                                                }*@
+                                                                }
                                                             </div>
                                                         </div>
                                                     </div>
