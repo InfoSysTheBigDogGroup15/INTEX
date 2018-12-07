@@ -106,6 +106,7 @@ namespace INTEX.Controllers
             ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
             return RedirectToAction("ClientSuccessfulOrder", "Clients");
+        }
 
             // GET: Assays/Delete/5
             public ActionResult Delete(int? id)
