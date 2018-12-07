@@ -1,20 +1,89 @@
-﻿@{ Layout = null;}
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
-{
-<div class="row text-center">
-    <div class="col-md-6 col-md-offset-3">
-        <label class="control-label">
-            Username:
-        </label>
-        @Html.TextBox("Username", null, new { @class = "form-control", placeholder = "Enter your username..." })
-        <br />
-        <label class="control-label">
-            Password:
-        </label>
-        @Html.TextBox("Password", null, new { @class = "form-control", type = "password", placeholder = "Enter your password..." })
-        <br />
-        <input type="submit" value="Login" />
-        
-    </div>
-</div>
+﻿@model INTEX.Models.UserAuth
+
+@{
+    Layout = null;
 }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="~/Content/GrantStyles.css">
+    <link href="~/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="~/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Content/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/Content/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/Content/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link href="~/Content/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+    <!-- Custom Theme Style -->
+    <link href="~/Content/build/css/custom2.css" rel="stylesheet">
+    <link href="~/Content/sitev2_2.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="~/Content/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Content/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <style>
+        @@media only screen and (max-width: 600px) {
+            #body-wrapper {
+                margin-top: 40px;
+            }
+        }
+    </style>
+    <link href="~/Content/LoginStyle.css" rel="stylesheet" />
+    <title>Login</title>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            <div class="row">
+                <div class="Absolute-Center is-Responsive">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div id="logo-container"></div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", placeholder = "username" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", placeholder = "password" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-def btn-block" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+</body>
+</html>
