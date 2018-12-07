@@ -19,6 +19,28 @@ namespace INTEX.Controllers
         public ActionResult Index()
         {
             var test_Tube = db.Test_Tube.Include(t => t.Test);
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL = found.clientLastName;
             return View(test_Tube.ToList());
         }
 
