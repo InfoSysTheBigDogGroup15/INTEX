@@ -87,17 +87,17 @@ namespace INTEX.Controllers
         }
         public ActionResult CreateUser()
         {
-
             return View();
         }
         [HttpPost]
-        public ActionResult CreateLabtech(FormCollection Form)
+        public ActionResult CreateEmployee(FormCollection Form)
         {
             string role = Form["Role"];
             string fname = Form["FirstName"];
             string lname = Form["LastName"];
             string username = Form["UserName"];
             string password = Form["Password"];
+            string title = Form["Title"];
             UserAuth newUser = new UserAuth();
             Employee newEmployee = new Employee();
             newUser.password = password;
@@ -105,13 +105,52 @@ namespace INTEX.Controllers
             newUser.role = role;
             newEmployee.employeeFirstName = fname;
             newEmployee.employeeLastName = lname;
-            newEmployee.title = role;
+            newEmployee.title = title;
             db.UserAuths.Add(newUser);
             db.SaveChanges();
             newEmployee.authorizationID = newUser.authorizationID;
             db.Employees.Add(newEmployee);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index", "Employees");
+        }
+
+        [HttpPost]
+        public ActionResult CreateClient(FormCollection Form)
+        {
+            string fname = Form["FirstName"];
+            string lname = Form["LastName"];
+            string username = Form["UserName"];
+            string password = Form["Password"];
+            string address = Form["Address"];
+            string city = Form["City"];
+            string state = Form["State"];
+            string zip = Form["Zip"];
+            string phone = Form["Phone"];
+            string email = Form["Email"];
+            string card = Form["Card"];
+            string cvc = Form["Cvc"];
+            string role = Form["Role"];
+            UserAuth newUser = new UserAuth();
+            Client nc = new Client();
+            newUser.password = password;
+            newUser.username = username;
+            newUser.role = role;
+            nc.clientFirstName = fname;
+            nc.clientLastName = lname;
+            nc.clientStreetAddress = address;
+            nc.clientCity = city;
+            nc.clientState = state;
+            nc.clientZip = zip;
+            nc.clientPhoneNumber = phone;
+            nc.clientEmail = email;
+            nc.clientCardNumber = card;
+            nc.clientCardCvc = cvc;
+            db.UserAuths.Add(newUser);
+            db.SaveChanges();
+            nc.authorizationID = newUser.authorizationID;
+            db.Clients.Add(nc);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Clients");
         }
     }
 }
