@@ -214,6 +214,7 @@ namespace INTEX.Controllers
             
             if (ModelState.IsValid)
             {
+                assay.clientID = int.Parse(User.Identity.Name);
                 db.Entry(assay).State = EntityState.Modified;
                 db.SaveChanges();
                 List<Client> findUser1 = db.Clients.ToList();
