@@ -4733,6 +4733,9 @@
     <Content Include="Views\Samples\Edit.cshtml" />
     <Content Include="Views\Samples\Index.cshtml" />
     <Content Include="Views\Home\AllTest.cshtml" />
+    <Content Include="Views\Assays\somehting.cshtml" />
+    <Content Include="Views\Assays\QuotesRecieved.cshtml" />
+    <Content Include="Views\Assays\Client2Finalize.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

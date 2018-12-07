@@ -54,18 +54,19 @@ namespace INTEX.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "assayID,clientID,LTNumber,testID,discountID,comments,statusID,allowExtraTest")] Assay assay)
         {
+            assay.statusID = 1;
             if (ModelState.IsValid)
             {
                 db.Assays.Add(assay);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("somehting");
             }
 
             ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName", assay.clientID);
             ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
             ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
             ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
-            return View(assay);
+            return View("somehting");
         }
 
         // GET: Assays/Edit/5
@@ -140,6 +141,40 @@ namespace INTEX.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult somehting()
+        {
+            return View();
+        }
+        public ActionResult QuotesRecieved()
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 1)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+
+            return View(clientAssayList);
+        }
+        public ActionResult Client2Finalize(int? ClientID)
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 2 && ass.clientID == ClientID)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+
+            return View(clientAssayList);
         }
     }
 }

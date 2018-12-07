@@ -120,27 +120,30 @@
                                             <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("Index", "Assays")">***Requests Dashboards</a></li>@*OUR PROPOSED SOLUTION INCLUDES USING RFID IN THE SINGAPORE LAB TO AUTOMATICALLY UPDATE STATUS OF TESTS AND WORK ORDERS
-                                                                                                                                ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
+        ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
                                                 <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li> @* add LT number and sequence number (THIS IS PERFORMED BY THE RFID TAGS/READER, but we need to fake it for the demo. This is the same step that the tests are compelted.
-                                                                                                                         On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
+        On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
+                                                <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Quotes to be approved</a></li>
+                                                <li><a href="@Url.Action("Index", "Home")">***Work Orders waiting for compounds</a></li>
+                                                <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
                                                 <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
 
-                                                @*<li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
+                                                <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
         <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>*@
+        <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>
                                                 @*<li>
-                                                    <a>Schedule<span class="fa fa-chevron-down"></span></a>
-                                                    <ul class="nav child_menu">
-                                                        <li class="sub_menu">
+            <a>Schedule<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li class="sub_menu">
 
-                                                        <li>
-                                                            <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a> 
-                                                        </li>
-                                                        <li>
-                                                            <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>*@
+                <li>
+                    <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
+                </li>
+            </ul>
+        </li>*@
 
                                             </ul>
                                         </li>
@@ -164,7 +167,7 @@
                                             <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("Index", "Tests")">***2 Catalogs</a></li> @*todo*@
-                                                <li><a href="@Url.Action("Index", "Assays")">Get quote</a></li>
+                                                <li><a href="@Url.Action("Create", "Assays")">Get quote</a></li>
                                                 <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>
                                             </ul>
                                         </li>
@@ -184,10 +187,12 @@
                                                 @*}*@
 
 
-                                                <li><a href="@Url.Action("AddSP1User", "Admin")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view:
+                                                <li><a href="@Url.Action("Create", "Assays")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view:
         CONFIRMATION VIEW CONTAINS AN OPTION TO PRINT A SHIPPING LABEL FOR CUSTOMER TO SHIP THEIR SAMPLES
                                                 *@
-                                                <li><a href="@Url.Action("AddSP1User", "Admin")">***New Order (add multiple tests)</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
+                                                <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***Quoted quotes (add multiple tests)</a></li>
+                                                <li><a href="@Url.Action("Client2Finalize", "Assays")">***Approved quotes waiting on approval</a></li>
+                                                @*status = approved Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
                                                 @*Each work order has a few extra options in it: 1. approve all necessary additional tests 2. Receive status Email updates of  (bool field in DB) 3. Request hard copy of results
         ONCE THE ORDER IS COMPLETE, THE WORK ORDER IS CREATED IN DB,
         THE STATUS OF THE W/O IS CHANGED TO "WAITING FOR SAMPLES"
@@ -208,8 +213,8 @@
                                         <li>
                                             <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("SendTextMessages", "Admin")">***Create client</a></li>
-                                                <li><a href="@Url.Action("Index", "VideoApplications")">***Approve work order</a></li>
+                                                <li><a href="@Url.Action("Create", "Clients")">***Create client</a></li>
+                                                <li><a href="@Url.Action("Index", "Assays")">***Work Orders waiting to be quoted in singapore</a></li>
                                                 @*<li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
                                                 <li><a href="@Url.Action("Index", "Announcements")">Alerts</a></li>*@
                                             </ul>
@@ -263,14 +268,14 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title">Generate SP1 Report</h4>
+                                                    <h4 class="modal-title">For which client</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
                                                         <div class="col-md-10 col-md-offset-1">
-                                                            <label>Quick Dates: &nbsp;&nbsp;</label>
+                                                            <label></label>
                                                             <div class="btn-group">
-                                                                @*@Html.ActionLink("Today", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
+                                                                @Html.ActionLink("Today", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
                                                                 @Html.ActionLink("Yesterday", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
                                                                 @Html.ActionLink("Past 7 Days", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddDays(-7).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
                                                                 @Html.ActionLink("Past Month", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddMonths(-1).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })*@
