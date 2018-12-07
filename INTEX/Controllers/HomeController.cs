@@ -167,5 +167,9 @@ namespace INTEX.Controllers
         }
         //public ActionResult CreateClientUser(FormColle)
        
+        public ActionResult AboutUs ()
+        {
+            return View();
+        }
     }
 }
