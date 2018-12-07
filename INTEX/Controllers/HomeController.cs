@@ -11,7 +11,7 @@ namespace INTEX.Controllers
 {
     public class HomeController : Controller
     {
-        public Client current = new Client();
+        //public Client current = new Client();
         private NorthwestContext db = new NorthwestContext();
         public ActionResult Index()
         {List<Client> findUser = db.Clients.ToList();
@@ -23,9 +23,18 @@ namespace INTEX.Controllers
                     found = c;
                 }
             }
-            current = found;
-            ViewBag.client = found;
-            return View();
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            
+            return View(foundA);
         }
 
         public ActionResult About()
@@ -60,12 +69,12 @@ namespace INTEX.Controllers
                 if (auth.username == username && auth.password == password)
                 {
                     FormsAuthentication.SetAuthCookie(auth.authorizationID.ToString(), rememberMe);
-                    return RedirectToAction("Index","Assays");
+                    return RedirectToAction("Index","Home");
                 }
 
                 
             }
-            return View();
+            return View("Index");
         }
 
         public ActionResult Logout()
@@ -100,12 +109,15 @@ namespace INTEX.Controllers
             string password = Form["Password"];
             UserAuth newUser = new UserAuth();
             Employee newEmployee = new Employee();
+            
             newUser.password = password;
             newUser.username = username;
             newUser.role = role;
             newEmployee.employeeFirstName = fname;
             newEmployee.employeeLastName = lname;
             newEmployee.title = role;
+            
+
             db.UserAuths.Add(newUser);
             db.SaveChanges();
             newEmployee.authorizationID = newUser.authorizationID;
@@ -113,5 +125,7 @@ namespace INTEX.Controllers
             db.SaveChanges();
             return View();
         }
+        //public ActionResult CreateClientUser(FormColle)
+       
     }
 }
