@@ -149,14 +149,14 @@
                                                 <a><i class="fa fa-tachometer"></i>My Dashboard <span class="fa fa-exclamation-triangle alerts" aria-hidden="true" style="color: orange;"></span><span class="fa fa-chevron-down"></span></a>
                                                 <ul class="nav child_menu">
                                                     <li><a href="@Url.Action("displayCustomerOrders", "Clients", new { AuthIDs = int.Parse(User.Identity.Name) })">My Orders</a></li>
-                                                    <li><a href="@Url.Action("Create", "Assays",int.Parse(User.Identity.Name))">Request Quote</a></li>
-                                                    <li><a href="@Url.Action("displayCustomerOrders", "Clients",int.Parse(User.Identity.Name))">Orders Waiting to be quoted in Singapore</a></li>
+                                                    <li><a href="@Url.Action("Create", "Assays",new { AuthIDs = int.Parse(User.Identity.Name) })">Request Quote</a></li>
+                                                    <li><a href="@Url.Action("displayCustomerOrders", new { AuthIDs = int.Parse(User.Identity.Name) })">Orders Waiting to be quoted in Singapore</a></li>
                                                     <li><a href="@Url.Action("Client2Finalize", "Assays", int.Parse(User.Identity.Name))">Priced Quotes</a></li>
-                                                    <li><a href="@Url.Action("ClientOrdersWaitingCompound", "Assays", int.Parse(User.Identity.Name))">Orders waiting on compound</a></li>
-                                                    <li><a href="@Url.Action("ClientOrdersWaitingSchedule", "Assays", int.Parse(User.Identity.Name))">Orders waiting to be scheduled</a><span class="fa fa-exclamation-triangle alerts" aria-hidden="true" style="color: orange;"></span></li>
-                                                    <li><a href="@Url.Action("ClientOrdersScheduled", "Assays")">Orders scheduled</a></li>
-                                                    <li><a href="@Url.Action("ClientFailedTests", "Assays")">Failed tests waiting for approval</a></li>
-                                                    <li><a href="@Url.Action("ClientsCompletedOrders", "Assays")">Work Orders completed (export results)</a><span class="fa fa-exclamation-triangle alerts" aria-hidden="true" style="color: orange;"></span></li>
+                                                    <li><a href="@Url.Action("ClientOrdersWaitingCompound", "Assays", new { AuthIDs = int.Parse(User.Identity.Name) })">Orders waiting on compound</a></li>
+                                                    <li><a href="@Url.Action("ClientOrdersWaitingSchedule", "Assays", new { AuthIDs = int.Parse(User.Identity.Name) })">Orders waiting to be scheduled</a><span class="fa fa-exclamation-triangle alerts" aria-hidden="true" style="color: orange;"></span></li>
+                                                    <li><a href="@Url.Action("ClientOrdersScheduled", "Assays",new { AuthIDs = int.Parse(User.Identity.Name) })">Orders scheduled</a></li>
+                                                    <li><a href="@Url.Action("ClientFailedTests", "Assays",new { AuthIDs = int.Parse(User.Identity.Name) })">Failed tests waiting for approval</a></li>
+                                                    <li><a href="@Url.Action("ClientsCompletedOrders", "Assays",new { AuthIDs = int.Parse(User.Identity.Name) })">Work Orders completed (export results)</a><span class="fa fa-exclamation-triangle alerts" aria-hidden="true" style="color: orange;"></span></li>
                                                 </ul>
                                             </li>
                                         }
