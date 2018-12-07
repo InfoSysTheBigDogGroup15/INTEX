@@ -34,14 +34,11 @@ namespace INTEX.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult Login(FormCollection form)
+        public ActionResult Login(String username, String password)
         {
-            string username = form["Username"];
-            string password = form["Password"];
-            //linear search
-            //reroute find role send to dashboard
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult AllTest()
