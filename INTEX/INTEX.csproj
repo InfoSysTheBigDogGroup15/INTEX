@@ -135,6 +135,7 @@
     <Compile Include="App_Start\IndexRoleProvider.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Assays2Controller.cs" />
     <Compile Include="Controllers\AssaysController.cs" />
     <Compile Include="Controllers\BillingsController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
@@ -4758,6 +4759,11 @@
     <Content Include="Views\Assays\ClientsCompletedOrders.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Assays\displayCustomerOrders.cshtml" />
+    <Content Include="Views\Assays2\Create.cshtml" />
+    <Content Include="Views\Assays2\Delete.cshtml" />
+    <Content Include="Views\Assays2\Details.cshtml" />
+    <Content Include="Views\Assays2\Edit.cshtml" />
+    <Content Include="Views\Assays2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

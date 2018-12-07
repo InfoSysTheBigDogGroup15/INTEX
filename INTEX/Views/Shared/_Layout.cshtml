@@ -196,7 +196,7 @@
                                         <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                        <li>@Html.ActionLink("My Profile", "MyProfile", "Users", new { id = User.Identity.Name }, null)</li>
+                                        <li>@Html.ActionLink("Create a new account", "CreateUser", "Home", new { id = User.Identity.Name }, null)</li>
                                         <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
                                     </ul>
                                 </li>

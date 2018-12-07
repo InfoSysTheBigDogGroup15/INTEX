@@ -1,0 +1,74 @@
+﻿@model INTEX.Models.Assay
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Assay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.clientFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.clientFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Compound.compoundName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compound.compoundName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.statusDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.statusDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Test.testName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test.testName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.allowExtraTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.allowExtraTest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.assayID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
