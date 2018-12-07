@@ -206,8 +206,7 @@
                                 @RenderBody()
 
 
-                                @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
-                                {*@
+                                
                                     <div id="sp1report-modal" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -254,50 +253,13 @@
                                                     <h4 class="modal-title">Generate SP2 Report</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    @*@using (Html.BeginForm("SP2Report", "Reports", FormMethod.Post))
-                                                    {
-                                                        @Html.AntiForgeryToken()
-                                                        <div class="row">
-
-                                                        </div>
-                                                        <div class="row report-only">
-                                                            @Html.Hidden("FromDash", "true")
-                                                            <div class="col-md-6">
-                                                                <label>From:</label>
-                                                                <div class="form-group">
-                                                                    <div class='input-group date' id='nav-datetimepicker3'>
-                                                                        @Html.TextBox("startDate", null, new { @class = "form-control" })
-                                                                        <span class="input-group-addon">
-                                                                            <a style="color:#333" href="#"><span class="glyphicon glyphicon-calendar"></span></a>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <label>To:</label>
-                                                                <div class="form-group">
-                                                                    <div class='input-group date' id='nav-datetimepicker4'>
-                                                                        @Html.TextBox("endDate", null, new { @class = "form-control" })
-                                                                        <span class="input-group-addon">
-                                                                            <a style="color:#333" href="#"><span class="glyphicon glyphicon-calendar"></span></a>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12 text-right">
-                                                                <br />
-                                                                <input class="btn btn-success" onclick="turnOnBrioOpacityLoader();" type="submit" name="submit" value="Go" />
-                                                            </div>
-                                                        </div>
-                                                    }*@
+                                                    
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
-                                @*}*@
+                                
 
 
                             </div>
@@ -316,12 +278,10 @@
                 <!-- /footer content -->
             </div>
         </div>
-    @*}
-    else
-    {*@
+   
         <div class="right_col" role="main">
             <div class="container">
-                @*@RenderBody()*@
+               
             </div>
         </div>
         <!-- /page content -->
@@ -373,8 +333,7 @@
     <!-- Custom Theme Scripts -->
     <script src="~/Content/build/js/custom.js"></script>
 
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")*@
+    
     <script src="~/Scripts/tablesorter.js"></script>
     <script src="~/Scripts/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="~/Scripts/moment.min.js"></script>
@@ -383,25 +342,7 @@
     <script src="~/signalr/js/"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.2/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.2/datatables.min.js"></script>
-    @*<script>
-        $("#menu_toggle").click(function () {
-            $("#brio-logo").toggle();
-        });
-        $(function () {
-            $('#nav-datetimepicker1').datetimepicker({
-                format: 'ddd MM/DD/YYYY',
-            });
-            $('#nav-datetimepicker2').datetimepicker({
-                format: 'ddd MM/DD/YYYY',
-            });
-            $('#nav-datetimepicker3').datetimepicker({
-                format: 'ddd MM/DD/YYYY',
-            });
-            $('#nav-datetimepicker4').datetimepicker({
-                format: 'ddd MM/DD/YYYY',
-            });
-        });
-    </script>*@
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>
