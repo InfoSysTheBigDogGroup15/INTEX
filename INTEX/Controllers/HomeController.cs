@@ -11,10 +11,11 @@ namespace INTEX.Controllers
 {
     public class HomeController : Controller
     {
-        public Client current = new Client();
+        //public Client current = new Client();
         private NorthwestContext db = new NorthwestContext();
         public ActionResult Index()
-        {List<Client> findUser = db.Clients.ToList();
+        {
+            List<Client> findUser = db.Clients.ToList();
             Client found = new Client();
             foreach (Client c in findUser)
             { 
@@ -23,8 +24,19 @@ namespace INTEX.Controllers
                     found = c;
                 }
             }
-            current = found;
-            ViewBag.client = found;
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            //current = found;
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL= found.clientLastName;
             return View();
         }
 
@@ -54,13 +66,13 @@ namespace INTEX.Controllers
             //linear search
             //reroute find role send to dashboard
             List<UserAuth> auths = db.UserAuths.ToList();
-
+            bool YN = false;
             foreach (UserAuth auth in auths)
             {
                 if (auth.username == username && auth.password == password)
-                {
+                {   
                     FormsAuthentication.SetAuthCookie(auth.authorizationID.ToString(), rememberMe);
-                    return RedirectToAction("Index","Assays");
+                    return RedirectToAction("Index","Home");
                 }
 
                 
@@ -100,6 +112,7 @@ namespace INTEX.Controllers
             string title = Form["Title"];
             UserAuth newUser = new UserAuth();
             Employee newEmployee = new Employee();
+            
             newUser.password = password;
             newUser.username = username;
             newUser.role = role;
@@ -152,5 +165,7 @@ namespace INTEX.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Clients");
         }
+        //public ActionResult CreateClientUser(FormColle)
+       
     }
 }
