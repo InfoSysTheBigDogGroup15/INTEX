@@ -11,9 +11,20 @@ namespace INTEX.Controllers
 {
     public class HomeController : Controller
     {
+        public Client current = new Client();
         private NorthwestContext db = new NorthwestContext();
         public ActionResult Index()
-        {
+        {List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            { 
+                if(c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            current = found;
+            ViewBag.client = found;
             return View();
         }
 

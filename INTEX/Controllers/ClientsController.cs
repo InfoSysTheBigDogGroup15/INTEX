@@ -14,10 +14,10 @@ namespace INTEX.Controllers
     public class ClientsController : Controller
     {
         private NorthwestContext db = new NorthwestContext();
-
+        
         // GET: Clients
         public ActionResult Index()
-        {
+        { 
             var clients = db.Clients.Include(c => c.Authorization);
             return View(clients.ToList());
         }
@@ -130,14 +130,22 @@ namespace INTEX.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult displayCustomerOrders(int? clientID)
-        {
+        public ActionResult displayCustomerOrders(int? clientIDs)
+        {   List<Client> client = db.Clients.ToList();
+            int clientidd=0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    clientidd = c.clientID;
+                }
+            }
             List<Assay> assayList = new List<Assay>();
             assayList = db.Assays.ToList();
             List<Assay> clientAssayList = new List<Assay>();
             foreach (Assay ass in assayList)
             {
-                if (ass.clientID== clientID)
+                if (ass.clientID == clientidd)
                 {
                     clientAssayList.Add(ass);
                 }
