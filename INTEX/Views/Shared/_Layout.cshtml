@@ -275,10 +275,21 @@
                                                         <div class="col-md-10 col-md-offset-1">
                                                             <label></label>
                                                             <div class="btn-group">
-                                                                @Html.ActionLink("Today", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
-                                                                @Html.ActionLink("Yesterday", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
-                                                                @Html.ActionLink("Past 7 Days", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddDays(-7).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.AddDays(-1).ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })
-                                                                @Html.ActionLink("Past Month", "SP1WeeklyReport_v2", "Reports", new { startDate = DateTime.Today.AddMonths(-1).ToString("ddd MM/dd/yyyy"), endDate = DateTime.Today.ToString("ddd MM/dd/yyyy"), SP1_RegionID = -1, isPayrollReport = false }, new { @class = "btn btn-sm btn-info", onclick = "turnOnBrioOpacityLoader();" })*@
+                                                                @using (Html.BeginForm("Login", "Home", ))
+                                                                {
+                                                                    <div class="row text-center">
+                                                                        <div class="col-md-6 col-md-offset-3">
+                                                                            <label class="control-label">
+                                                                                Username:
+                                                                            </label>
+                                                                            @Html.TextBox("Username", null, new { @class = "form-control", placeholder = "Enter your username..." })
+                                                                            <br />
+                                                                            
+                                                                            <input type="submit" value="Login" />
+
+                                                                        </div>
+                                                                    </div>
+                                                                }
                                                             </div>
                                                         </div>
                                                     </div>
