@@ -33,7 +33,7 @@ namespace INTEX.Controllers
                 }
             }
             //current = found;
-            
+            ViewBag.User = foundA.username;  
             return View(foundA);
         }
 

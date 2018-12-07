@@ -109,8 +109,8 @@ namespace INTEX.Controllers
             return RedirectToAction("ClientSuccessfulOrder", "Clients");
         }
 
-            // GET: Assays/Delete/5
-            public ActionResult Delete(int? id)
+        // GET: Assays/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -177,5 +177,21 @@ namespace INTEX.Controllers
 
             return View(clientAssayList);
         }
+        public ActionResult WaitingCompounds()
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 4)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+            return View(clientAssayList);
+        }
     }
 }
+    
+

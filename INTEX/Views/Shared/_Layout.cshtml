@@ -1,4 +1,4 @@
-﻿@model INTEX.Models.UserAuth
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="profile_info">
                                     <span>Welcome,</span>
-                                    <h2>@Model.username</h2>
+                                    <h2>@ViewBag.User</h2>
                                 </div>
                             </div>
                             <!-- /menu profile quick info -->
@@ -126,7 +126,7 @@
                                                     <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li> @* add LT number and sequence number (THIS IS PERFORMED BY THE RFID TAGS/READER, but we need to fake it for the demo. This is the same step that the tests are compelted.
                 On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
                                                     <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Quotes to be approved</a></li>
-                                                    <li><a href="@Url.Action("Index", "Home")">***Work Orders waiting for compounds</a></li>
+                                                    <li><a href="@Url.Action("WaitingCompounds", "Assays")">***Work Orders waiting for compounds</a></li>
                                                     <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
                                                     <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
 
@@ -218,7 +218,7 @@
                                             <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("Create", "Clients")">***Create client</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays")">***Work Orders waiting to be quoted in singapore</a></li>
+                                                <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Work Orders waiting to be quoted in singapore</a></li>
                                                 @*<li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
                                                 <li><a href="@Url.Action("Index", "Announcements")">Alerts</a></li>*@
                                             </ul>
