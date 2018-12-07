@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="~/Content/GrantStyles.css">
 
-    @*<link rel="icon" href="@Url.Content("~/Content/favicon.ico")" />*@
     <!-- Bootstrap -->
     <link href="~/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -25,12 +23,11 @@
     <!-- bootstrap-progressbar -->
     <link href="~/Content/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="~/Content/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    
     <!-- bootstrap-daterangepicker -->
     <link href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- FullCalendar -->
-    <link href="~/Content/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
-    <link href="~/Content/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+    
+
     <!-- Custom Theme Style -->
     <link href="~/Content/build/css/custom2.css" rel="stylesheet">
     <link href="~/Content/sitev2_2.css" rel="stylesheet" />
@@ -47,201 +44,135 @@
         }
     </style>
 </head>
-
 <body class="nav-md">
-    @*@if (User.Identity.IsAuthenticated)
-    {*@
         <div class="container body">
             <div class="main_container">
-                @*@if (Request.Cookies["Initialized"].Value == "")
-                {*@
                     <div class="col-md-3 left_col">
                         <div class="left_col scroll-view">
                             <div class="navbar nav_title" style="border: 0;">
-                                @*<a href="@Url.Action("Index", "Dashboards")" class="site_title"><div id="brio-logo" style="width: 70px; margin-left: 50px;"><img src="~/Content/" alt="Alternate Text" /></div></a> <!-- TODO LOGO-->*@
                             </div>
-
                             <div class="clearfix"></div>
-
-                            <!-- menu profile quick info -->
                             <div class="profile clearfix">
                                 <div class="profile_pic">
-                                    @*@if (Request.Cookies["ProfilePic"].Value != "")
-                                    {
-                                        <a href="@Url.Action("MyProfile", "Users", new { id = User.Identity.Name })"><img style="object-fit: cover; width: 56px; height: 56px;" src="@Request.Cookies["ProfilePic"].Value" alt="..." class="img-circle profile_img"></a>
-                                    }
-                                    else
-                                    {
-                                        <a href="@Url.Action("MyProfile", "Users", new { id = User.Identity.Name })"><img src="~/Content/placeholder-profile-pic.png" alt="..." class="img-circle profile_img"></a>
-                                    }*@
+                                    
                                 </div>
                                 <div class="profile_info">
                                     <span>Welcome,</span>
                                     <h2>@ViewBag.User</h2>
                                 </div>
                             </div>
-                            <!-- /menu profile quick info -->
-
                             <br />
-
-                            <!-- sidebar menu -->
                             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                                 <div class="menu_section">
-                                    
-                                    <ul class="nav side-menu">
-                                        <li>
-                                            <a href="@Url.Action("Index", "Dashboards")"><i class="fa fa-tachometer"></i> My Dashboard </a>
-                                        </li>
-                                        @if (User.IsInRole("RegionalManager") || User.IsInRole("Admin"))
-                                        {
-                                            <li>
-                                                <a><i class="fa fa-building"></i> Seattle <span class="fa fa-chevron-down"></span></a>
-                                                <ul class="nav child_menu">
-                                                    @*<li><a href="@Url.Action("Index", "Tests", null )">Alerts or Tasks</a></li>
-                    <li><a href="@Url.Action("Index", "Tests", null )">All Individual tests</a></li>
-                    <li><a href="@Url.Action("Index", "Tests", null )">All Orders</a></li>
-                    <li><a href="@Url.Action("Index", "Assays", null )">Manangement</a></li>
-                    <li><a href="@Url.Action("Index", "Assays", null )">Manangement(view sales report)</a></li> *@
-                                                    <li><a href="@Url.Action("Index", "Assays", null)">***Create result summary report </a></li> @*Once Singapore attaches teh RAW results to a work order, the director
-                    is notified, the director can then download the raw results and create
-                    the summary report, then reattach the summary report as a PDF to the
-                    work order. The client is then updated that their results are in.
-                    From there the status of their work order is either complete or pending payment*@
-                                                </ul>
-                                            </li>
-                                        }
 
+
+                                    @if (User.IsInRole("RegionalManager"))
+                                    {
+                                        <li>
+                                            <a><i class="fa fa-building"></i> Seattle <span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+
+                                                <li><a href="@Url.Action("Index", "Assays")">***Create result summary report </a></li>
+                                            </ul>
+                                        </li>
+                                    }
+                                    @if (User.IsInRole("LabTech"))
+                                    {
+                                        <ul class="nav side-menu">
+                                            <li>
+                                                <a href="@Url.Action("Index", "Home")"><i class="fa fa-flask"></i>Singapore Pharmaceutical</a>
+
+                                            </li>
                                         </ul>
-                                 
-                                @*@if (User.IsInRole("Admin") || User.IsInRole("Regional") || User.IsInRole("Manager"))
-                                {*@
-                                    
-                                       
-                                    <ul class="nav side-menu"> 
-                                        @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
-        {*@                             @if (User.IsInRole("LabTech") || User.IsInRole("Admin"))
+                                    }
+                                    @if (User.IsInRole("Client"))
+                                    {
+                                        <ul class="nav side-menu">
+                                            <li>
+                                                <a href="@Url.Action("Index", "Home")"><i class="fa fa-flask"></i>North West Labs </a>
+
+                                            </li>
+                                        </ul>
+                                    }
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <ul class="nav side-menu">
+                                            <li>
+                                                <a href="@Url.Action("Index", "Home")"><i class="fa fa-flask"></i>Admin Super User </a>
+
+                                            </li>
+                                        </ul>
+                                    }
+
+                                    <ul class="nav side-menu">
+                                        @if (User.IsInRole("LabTech") || User.IsInRole("Admin"))
                                         {
                                             <li>
-                                                <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
+                                                <a><i class="fa fa-tachometer"></i>My Dashboard <span class="fa fa-chevron-down"></span></a>
+
                                                 <ul class="nav child_menu">
-                                                    @*<li><a href="@Url.Action("Index", "Assays")">***Requests Dashboards</a></li>OUR PROPOSED SOLUTION INCLUDES USING RFID IN THE SINGAPORE LAB TO AUTOMATICALLY UPDATE STATUS OF TESTS AND WORK ORDERS
-        ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
-                                                    <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li> @* add LT number and sequence number (THIS IS PERFORMED BY THE RFID TAGS/READER, but we need to fake it for the demo. This is the same step that the tests are compelted.
-        On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
+
+                                                    <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li>
                                                     <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Quotes to be priced</a></li>
                                                     <li><a href="@Url.Action("WaitingCompounds", "Assays")">***Work Orders waiting for compounds</a></li>
                                                     <li><a href="@Url.Action("WaitingToBeScheduled", "Assays")">***Work Orders waiting to be scheduled</a></li>
                                                     <li><a href="@Url.Action("Scheduled", "Assays")">***Work Orders Scheduled</a></li>
                                                     <li><a href="@Url.Action("FailedTests", "Assays")">***Work Orders Failed</a></li>
                                                     <li><a href="@Url.Action("SuccessfulOrders", "Assays")">***Work Orders completed</a></li>
-                                                    @*<li><a href="@Url.Action("Index", "Home")">***All tests</a></li>*@
-
-
-                                                    @*<li>
-            <a>Schedule<span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li class="sub_menu">
-
-                <li>
-                    <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
-                </li>
-            </ul>
-        </li>*@
-
                                                 </ul>
                                             </li>
                                         }
-                                        
-                                        @*<li>
-                                            <a><i class="fa fa-dollar"></i>Billing<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "Assays")">Work Orders</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays")">Record special requests(client) on work order</a></li> 
-                                                <li><a href="@Url.Action("Index", "Assays")">Create discount request</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays")">Invoices</a></li>
-                                            </ul>
-                                        </li>*@
+                                        @if (User.IsInRole("Sales") || User.IsInRole("Admin") || User.IsInRole("Client"))
+                                        {
+
+                                            <li>
+
+                                                <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
+                                                <ul class="nav child_menu">
+                                                    <li><a href="@Url.Action("Index", "Tests")">***Catalog</a></li>
+                                                    <li><a href="@Url.Action("Create", "Assays")">Get quote</a></li>
+                                                    <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>
+                                                </ul>
+                                            </li>
+                                        }
+
+                                        @if (User.IsInRole("Admin") || User.IsInRole("Client"))
+                                        {
+                                            <li>
+                                                <a><i class="fa fa-tachometer"></i>My Dashboard <span class="fa fa-chevron-down"></span></a>
+                                                <ul class="nav child_menu">
+                                                    <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***My Orders</a></li>
+                                                    <li><a href="@Url.Action("Create", "Assays")">***Request Quote</a></li>
+                                                    <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***Orders Waiting to be quoted in Singapore</a></li>
+                                                    <li><a href="@Url.Action("Client2Finalize", "Assays")">***Priced Quotes</a></li>
+                                                    <li><a href="@Url.Action("ClientOrdersWaitingCompound", "Assays")">***Orders waiting on compound</a></li>
+                                                    <li><a href="@Url.Action("ClientOrdersWaitingSchedule", "Assays")">***Orders waiting to be scheduled</a></li>
+                                                    <li><a href="@Url.Action("ClientOrdersScheduled", "Assays")">***Orders scheduled</a></li>
+                                                    <li><a href="@Url.Action("ClientFailedTests", "Assays")">***Failed tests waiting for approval</a></li>
+                                                    <li><a href="@Url.Action("ClientsCompletedOrders", "Assays")">***Work Orders completed (export results)</a></li>
+                                                </ul>
+                                            </li>
+                                        }
+
+                                        @if (User.IsInRole("Sales") || User.IsInRole("Admin"))
+                                        {
+                                            <li>
+                                                <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
+                                                <ul class="nav child_menu">
+                                                    <li><a href="@Url.Action("Create", "Clients")">***Create client</a></li>
+                                                    <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Work Orders waiting to be quoted in singapore</a></li>
+                                                </ul>
+                                            </li>
+
+                                        }
 
 
-
-
-
-                                        @*@if (User.IsInRole("Admin"))
-        {*@
-                                        <li>
-                                            <a><i class="fa fa-list-alt"></i>Client Catalog (marketing site)<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "Tests")">***Catalog</a></li> @*todo*@
-                                                <li><a href="@Url.Action("Create", "Assays")">Get quote</a></li>
-                                                @*<li><a href="@Url.Action("Index", "Assays")">About Us</a></li>*@
-                                            </ul>
-                                        </li>
-
-                                        @*@if (User.IsInRole("Admin") || User.IsInRole("Regional") || User.IsInRole("Manager"))
-        {*@
-                                        <li>
-                                            <a><i class="fa fa-users"></i>Active Clients<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***My Orders</a></li> @*From this page you can access the Tests_records view. Each work order has a list of tests that are being done in the work order
-        The way to access the tests_records view is to select a "More details" button next to a specific work order on the My orders view.
-        From the tests views clients *@
-                                                @*@if (User.IsInRole("Admin"))
-        {*@
-                                                @*<li><a href="@Url.Action("Index", "Users")">1 orders tests </a></li>
-        <li><a href="@Url.Action("Index", "Users")">Active tests </a></li ><li><a href="@Url.Action("AddSFUser", "Admin")">Help</a></li>*@
-                                                @*}*@
-
-
-                                                <li><a href="@Url.Action("Create", "Assays")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view:
-        CONFIRMATION VIEW CONTAINS AN OPTION TO PRINT A SHIPPING LABEL FOR CUSTOMER TO SHIP THEIR SAMPLES
-                                                *@
-                                                <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***Orders Waiting to be quoted in Singapore</a></li>
-                                                <li><a href="@Url.Action("Client2Finalize", "Assays")">***Priced Quotes</a></li>
-                                                <li><a href="@Url.Action("ClientOrdersWaitingCompound", "Assays")">***Orders waiting on compound</a></li>
-                                                <li><a href="@Url.Action("ClientOrdersWaitingSchedule", "Assays")">***Orders waiting to be scheduled</a></li>
-                                                <li><a href="@Url.Action("ClientOrdersScheduled", "Assays")">***Orders scheduled</a></li>
-                                                *<li><a href="@Url.Action("ClientFailedTests", "Assays")">***Failed tests waiting for approval</a></li>
-                                                *<li><a href="@Url.Action("ClientsCompletedOrders", "Assays")">***Work Orders completed (export results)</a></li>
-
-                                                @*status = approved Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
-                                                @*Each work order has a few extra options in it: 1. approve all necessary additional tests 2. Receive status Email updates of  (bool field in DB) 3. Request hard copy of results
-        ONCE THE ORDER IS COMPLETE, THE WORK ORDER IS CREATED IN DB,
-        THE STATUS OF THE W/O IS CHANGED TO "WAITING FOR SAMPLES"
-        ***WHENEVER A STATUS CHANGES, ALL DASHBOARDS SHOULD SHOW AN ALERT SYMBOL NEXT TO THAT RECORD.****@
-                                            </ul>
-                                        </li>
-
-                                        @*@if (User.IsInRole("Admin"))
-        {*@
-                                        @*<li>
-                                            <a><i class="fa fa-compress"></i>Contact us<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("SendTextMessages", "Admin")">Chat</a></li>
-                                                <li><a href="@Url.Action("Index", "VideoApplications")">Contact</a></li>
-                                                <li><a href="@Url.Action("Index", "Announcements")">Frequently asked questions</a></li>
-                                            </ul>
-                                        </li>*@
-                                        <li>
-                                            <a><i class="fa fa-user"></i>Sales<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Create", "Clients")">***Create client</a></li>
-                                                <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Work Orders waiting to be quoted in singapore</a></li>
-                                                @*<li><a href="@Url.Action("Index", "VideoApplications")">Client(s) status</a></li>
-                                                <li><a href="@Url.Action("Index", "Announcements")">Alerts</a></li>*@
-                                            </ul>
-                                        </li>
-                                        @*}*@
                                     </ul>
-                                    </div>
-                                @*}*@
-
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
+                     
 
                 <!-- top navigation -->
                 <div class="top_nav">
@@ -254,7 +185,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        @*@Request.Cookies["firstname"].Value @Request.Cookies["lastname"].Value*@
+                                        @ViewBag.User Profile
                                         <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -309,43 +240,6 @@
                                                     </div>
                                                     <br />
                                                     <br />
-                                                    <h4><b>Custom Date Range:</b></h4>
-                                                    @*@using (Html.BeginForm("SP1WeeklyReport_v2", "Reports", FormMethod.Post))
-                                                    {
-                                                        @Html.AntiForgeryToken()
-                                                        <div class="row report-only">
-                                                            @Html.Hidden("RegionID", "-1")
-                                                            @Html.Hidden("FromDash", "true")
-                                                            <div class="col-md-6">
-                                                                <label>From:</label>
-                                                                <div class="form-group">
-                                                                    <div class='input-group date' id='nav-datetimepicker1'>
-                                                                        @Html.TextBox("startDate", null, new { @class = "form-control" })
-                                                                        <span class="input-group-addon">
-                                                                            <a style="color:#333" href="#"><span class="glyphicon glyphicon-calendar"></span></a>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <label>To:</label>
-                                                                <div class="form-group">
-                                                                    <div class='input-group date' id='nav-datetimepicker2'>
-                                                                        @Html.TextBox("endDate", null, new { @class = "form-control" })
-                                                                        <span class="input-group-addon">
-                                                                            <a style="color:#333" href="#"><span class="glyphicon glyphicon-calendar"></span></a>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12 text-right">
-                                                                <br />
-                                                                <input class="btn btn-success" onclick="turnOnBrioOpacityLoader();" type="submit" name="submit" value="Go" />
-                                                            </div>
-                                                        </div>
-                                                    }*@
                                                 </div>
                                             </div>
 

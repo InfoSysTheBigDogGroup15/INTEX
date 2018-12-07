@@ -58,6 +58,18 @@ namespace INTEX.App_Start
                 {
                     return new string[] { "LabTech" };
                 }
+                else if (s.role == "Sales")
+                {
+                    return new string[] { "Sales" };
+                }
+                else if (s.role == "Client")
+                {
+                    return new string[] { "CLient" };
+                }
+                else if (s.role == "Admin")
+                {
+                    return new string[] { "Admin" };
+                }
             }
             return new string[] { "" };
         }
