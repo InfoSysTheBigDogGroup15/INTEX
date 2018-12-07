@@ -92,23 +92,26 @@
                                         <li>
                                             <a href="@Url.Action("Index", "Dashboards")"><i class="fa fa-tachometer"></i> My Dashboard </a>
                                         </li>
-                                        <li>
-                                            <a><i class="fa fa-building"></i> Seattle <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                @*<li><a href="@Url.Action("Index", "Tests", null )">Alerts or Tasks</a></li>
-                                                <li><a href="@Url.Action("Index", "Tests", null )">All Individual tests</a></li>
-                                                <li><a href="@Url.Action("Index", "Tests", null )">All Orders</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays", null )">Manangement</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays", null )">Manangement(view sales report)</a></li> *@
-                                                <li><a href="@Url.Action("Index", "Assays", null )">***Create result summary report </a></li> @*Once Singapore attaches teh RAW results to a work order, the director
-                                                                                                                                                                           is notified, the director can then download the raw results and create
-                                                                                                                                                                           the summary report, then reattach the summary report as a PDF to the 
-                                                                                                                                                                           work order. The client is then updated that their results are in.
-                                                                                                                                                                           From there the status of their work order is either complete or pending payment*@
-                                            </ul>
-                                        </li>
-                                       
-                                    </ul>
+                                        @if (User.IsInRole("RegionalManager") || User.IsInRole("Admin"))
+                                        {
+                                            <li>
+                                                <a><i class="fa fa-building"></i> Seattle <span class="fa fa-chevron-down"></span></a>
+                                                <ul class="nav child_menu">
+                                                    @*<li><a href="@Url.Action("Index", "Tests", null )">Alerts or Tasks</a></li>
+                    <li><a href="@Url.Action("Index", "Tests", null )">All Individual tests</a></li>
+                    <li><a href="@Url.Action("Index", "Tests", null )">All Orders</a></li>
+                    <li><a href="@Url.Action("Index", "Assays", null )">Manangement</a></li>
+                    <li><a href="@Url.Action("Index", "Assays", null )">Manangement(view sales report)</a></li> *@
+                                                    <li><a href="@Url.Action("Index", "Assays", null)">***Create result summary report </a></li> @*Once Singapore attaches teh RAW results to a work order, the director
+                    is notified, the director can then download the raw results and create
+                    the summary report, then reattach the summary report as a PDF to the
+                    work order. The client is then updated that their results are in.
+                    From there the status of their work order is either complete or pending payment*@
+                                                </ul>
+                                            </li>
+                                        }
+
+                                        </ul>
                                  
                                 @*@if (User.IsInRole("Admin") || User.IsInRole("Regional") || User.IsInRole("Manager"))
                                 {*@
@@ -116,36 +119,35 @@
                                        
                                     <ul class="nav side-menu"> 
                                         @*@if (User.IsInRole("Admin") || User.IsInRole("Manager") || User.IsInRole("Regional"))
-        {*@                             @if (User.IsInRole("LabTech"))
+        {*@                             @if (User.IsInRole("LabTech") || User.IsInRole("Admin"))
                                         {
                                             <li>
                                                 <a><i class="fa fa-flask"></i>Singapore<span class="fa fa-chevron-down"></span></a>
                                                 <ul class="nav child_menu">
-                                                    <li><a href="@Url.Action("Index", "Assays")">***Requests Dashboards</a></li>@*OUR PROPOSED SOLUTION INCLUDES USING RFID IN THE SINGAPORE LAB TO AUTOMATICALLY UPDATE STATUS OF TESTS AND WORK ORDERS
-                ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
+                                                    @*<li><a href="@Url.Action("Index", "Assays")">***Requests Dashboards</a></li>OUR PROPOSED SOLUTION INCLUDES USING RFID IN THE SINGAPORE LAB TO AUTOMATICALLY UPDATE STATUS OF TESTS AND WORK ORDERS
+        ***SINCE WE DON'T HAVE THE RFID, WE NEED TO CODE THE UPDATE OF STATUS AT EVERY POINT OF THE DEMO*** LET ME KNOW IF THIS DOESN'T MAKE SENSE.*@
                                                     <li><a href="@Url.Action("Index", "Assays")">***Work Orders</a></li> @* add LT number and sequence number (THIS IS PERFORMED BY THE RFID TAGS/READER, but we need to fake it for the demo. This is the same step that the tests are compelted.
-                On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
-                                                    <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Quotes to be approved</a></li>
+        On this view is where singapore Pharma bros attach the results - these results are then sent to the seattle director of pharmacology.*@
+                                                    <li><a href="@Url.Action("QuotesRecieved", "Assays")">***Quotes to be priced</a></li>
                                                     <li><a href="@Url.Action("WaitingCompounds", "Assays")">***Work Orders waiting for compounds</a></li>
-                                                    <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
-                                                    <li><a href="@Url.Action("Index", "Home")">***All tests</a></li>
+                                                    <li><a href="@Url.Action("WaitingToBeScheduled", "Assays")">***Work Orders waiting to be scheduled</a></li>
+                                                    <li><a href="@Url.Action("TestsScheduled", "Assays")">***Work Orders waiting to be scheduled</a></li>
+                                                    @*<li><a href="@Url.Action("Index", "Home")">***All tests</a></li>*@
 
-                                                    <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Request dashboard</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">Work Orders</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#sp1report-modal">All Assays</a></li>
+
                                                     @*<li>
-                    <a>Schedule<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li class="sub_menu">
+            <a>Schedule<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li class="sub_menu">
 
-                        <li>
-                            <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
-                        </li>
-                    </ul>
-                </li>*@
+                <li>
+                    <a href="@Url.Action("Index", "Assays", null)">Schedule Assays </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Assays", null)">Edit Schedule</a>
+                </li>
+            </ul>
+        </li>*@
 
                                                 </ul>
                                             </li>
@@ -172,7 +174,7 @@
                                             <ul class="nav child_menu">
                                                 <li><a href="@Url.Action("Index", "Tests")">***2 Catalogs</a></li> @*todo*@
                                                 <li><a href="@Url.Action("Create", "Assays")">Get quote</a></li>
-                                                <li><a href="@Url.Action("Index", "Assays")">About Us</a></li>
+                                                @*<li><a href="@Url.Action("Index", "Assays")">About Us</a></li>*@
                                             </ul>
                                         </li>
 
@@ -194,7 +196,7 @@
                                                 <li><a href="@Url.Action("Create", "Assays")">***Request Quote</a></li>@*Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view:
         CONFIRMATION VIEW CONTAINS AN OPTION TO PRINT A SHIPPING LABEL FOR CUSTOMER TO SHIP THEIR SAMPLES
                                                 *@
-                                                <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***Quoted quotes (add multiple tests)</a></li>
+                                                <li><a href="@Url.Action("displayCustomerOrders", "Clients")">***Orders Waiting to be quoted in Singapore</a></li>
                                                 <li><a href="@Url.Action("Client2Finalize", "Assays")">***Approved quotes waiting on approval</a></li>
                                                 @*status = approved Add multiple tests, send request to Singapore Pharmacologists for pricing, send to a confirmation view*@
                                                 @*Each work order has a few extra options in it: 1. approve all necessary additional tests 2. Receive status Email updates of  (bool field in DB) 3. Request hard copy of results

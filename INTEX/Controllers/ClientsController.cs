@@ -59,7 +59,8 @@ namespace INTEX.Controllers
             }
 
             ViewBag.authorizationID = new SelectList(db.UserAuths, "authorizationID", "username", client.authorizationID);
-            return RedirectToAction("Edit", "UserAuth", client.authorizationID);
+            //return RedirectToAction("Edit", "UserAuth", client.authorizationID);
+            return View();
         }
 
         // GET: Clients/Edit/5
@@ -152,7 +153,80 @@ namespace INTEX.Controllers
             }
             return View(clientAssayList);
         }
-        public ActionResult ClientCreateAssayOrder()
+        // GET: Assays/Create
+        public ActionResult ClientCreateAssay()
+        {
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            ViewBag.client = found;
+            ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName");
+            ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName");
+            ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description");
+            ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription");
+            return View();
+        }
+
+        // POST: Assays/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ClientCreateAssay([Bind(Include = "assayID,clientID,LTNumber,testID,discountID,comments,statusID,allowExtraTest")] Assay assay)
+        {
+            List<Client> findUser = db.Clients.ToList();
+            Client found = new Client();
+            foreach (Client c in findUser)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    found = c;
+                }
+            }
+            List<UserAuth> findUserA = db.UserAuths.ToList();
+            UserAuth foundA = new UserAuth();
+            foreach (UserAuth c in findUserA)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    foundA = c;
+                }
+            }
+            assay.clientID = found.clientID;
+            assay.statusID = 1;
+            if (ModelState.IsValid)
+            {
+                db.Assays.Add(assay);
+                db.SaveChanges();
+                return View("ClientSuccesfulOrder");
+            }
+
+            ViewBag.clientID = new SelectList(db.Clients, "clientID", "clientFirstName", assay.clientID);
+            ViewBag.LTNumber = new SelectList(db.Compounds, "LTNumber", "compoundName", assay.LTNumber);
+            ViewBag.discountID = new SelectList(db.Discounts, "discountID", "description", assay.discountID);
+            ViewBag.statusID = new SelectList(db.Status, "statusID", "statusDescription", assay.statusID);
+            return View("ClientSuccesfulOrder");
+        }
+        public ActionResult ClientSuccessfulOrder()
+        {
+            return View();
+        }
+        public ActionResult ClientCreated()
         {
             return View();
         }

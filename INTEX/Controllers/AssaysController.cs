@@ -18,7 +18,7 @@ namespace INTEX.Controllers
         // GET: Assays
         public ActionResult Index()
         {
-            var assays = db.Assays.Include(a => a.Client).Include(a => a.Compound).Include(a => a.Discount).Include(a => a.Status);
+            var assays = db.Assays.ToList();
             return View(assays.ToList());
         }
 
@@ -162,14 +162,23 @@ namespace INTEX.Controllers
 
             return View(clientAssayList);
         }
-        public ActionResult Client2Finalize(int? ClientID)
+        public ActionResult Client2Finalize(int? ClientIDss)
         {
+            List<Client> client = db.Clients.ToList();
+            int clientidd = 0;
+            foreach (Client c in client)
+            {
+                if (c.authorizationID == int.Parse(User.Identity.Name))
+                {
+                    clientidd = c.clientID;
+                }
+            }
             List<Assay> assayList = new List<Assay>();
             assayList = db.Assays.ToList();
             List<Assay> clientAssayList = new List<Assay>();
             foreach (Assay ass in assayList)
             {
-                if (ass.statusID == 2 && ass.clientID == ClientID)
+                if (ass.statusID == 2 && ass.clientID == clientidd)
                 {
                     clientAssayList.Add(ass);
                 }
@@ -185,6 +194,36 @@ namespace INTEX.Controllers
             foreach (Assay ass in assayList)
             {
                 if (ass.statusID == 4)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+            return View(clientAssayList);
+        }
+        public ActionResult WaitingToBeScheduled()
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 5)
+                {
+                    clientAssayList.Add(ass);
+                }
+            }
+            return View(clientAssayList);
+
+        }
+
+        public ActionResult TestsScheduled()
+        {
+            List<Assay> assayList = new List<Assay>();
+            assayList = db.Assays.ToList();
+            List<Assay> clientAssayList = new List<Assay>();
+            foreach (Assay ass in assayList)
+            {
+                if (ass.statusID == 6)
                 {
                     clientAssayList.Add(ass);
                 }

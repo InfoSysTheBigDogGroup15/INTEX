@@ -4739,6 +4739,11 @@
     <Content Include="Views\Home\CreateUser.cshtml" />
     <Content Include="Views\Home\CreateLabtech.cshtml" />
     <Content Include="Views\Assays\WaitingCompounds.cshtml" />
+    <Content Include="Views\Assays\WaitingToBeScheduled.cshtml" />
+    <Content Include="Views\Clients\ClientSuccesfulOrder.cshtml" />
+    <Content Include="Views\Clients\ClientCreateAssay.cshtml" />
+    <Content Include="Views\Clients\ClientCreated.cshtml" />
+    <Content Include="Views\Assays\TestsScheduled.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

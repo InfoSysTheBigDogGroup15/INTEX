@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<INTEX.Models.Assay>
 
 @{
-    ViewBag.Title = "displayCustomerOrders";
+    ViewBag.Title = "TestsScheduled";
 }
 
-<h2>displayCustomerOrders</h2>
+<h2>TestsScheduled</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Client.clientFirstName)
+            @Html.DisplayNameFor(model => model.Client.clientID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Compound.compoundName)
@@ -38,7 +38,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Client.clientFirstName)
+            @Html.DisplayFor(modelItem => item.Client.clientID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Compound.compoundName)

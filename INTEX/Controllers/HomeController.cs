@@ -14,7 +14,8 @@ namespace INTEX.Controllers
         //public Client current = new Client();
         private NorthwestContext db = new NorthwestContext();
         public ActionResult Index()
-        {List<Client> findUser = db.Clients.ToList();
+        {
+            List<Client> findUser = db.Clients.ToList();
             Client found = new Client();
             foreach (Client c in findUser)
             { 
@@ -33,8 +34,10 @@ namespace INTEX.Controllers
                 }
             }
             //current = found;
-            ViewBag.User = foundA.username;  
-            return View(foundA);
+            ViewBag.User = foundA.username;
+            ViewBag.UserF = found.clientFirstName;
+            ViewBag.UserL= found.clientLastName;
+            return View();
         }
 
         public ActionResult About()
@@ -63,18 +66,18 @@ namespace INTEX.Controllers
             //linear search
             //reroute find role send to dashboard
             List<UserAuth> auths = db.UserAuths.ToList();
-
+            bool YN = false;
             foreach (UserAuth auth in auths)
             {
                 if (auth.username == username && auth.password == password)
-                {
+                {   
                     FormsAuthentication.SetAuthCookie(auth.authorizationID.ToString(), rememberMe);
                     return RedirectToAction("Index","Home");
                 }
 
                 
             }
-            return View("Index");
+            return View();
         }
 
         public ActionResult Logout()
